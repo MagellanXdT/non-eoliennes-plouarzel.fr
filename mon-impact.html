@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mon impact — NON aux éoliennes de Plouarzel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--vf:#1e3d14;--vert:#2d6b1f;--vc:#e8f4e5;--rouge:#b03020;--rouge-f:#7a1a0e;--rouge-c:#fdf0ee;--or:#c8921a;--or-c:#fff8e8;--gris:#f2ede6;--sombre:#1a1a1a;--blanc:#fff;--nh:62px;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{min-height:100%;font-family:'DM Sans',sans-serif;background:var(--gris);color:var(--sombre);}
+
+nav{position:sticky;top:0;z-index:200;background:var(--blanc);border-bottom:3px solid var(--vert);height:var(--nh);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.logo{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--vf);text-decoration:none;font-weight:700;}
+nav ul{list-style:none;display:flex;}
+nav ul a{display:block;padding:0 .8rem;height:var(--nh);line-height:var(--nh);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#555;text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-3px;transition:.2s;}
+nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
+.cta-nav{background:var(--rouge)!important;color:white!important;height:32px!important;line-height:32px!important;margin:auto 0;border-bottom:none!important;border-radius:2px;padding:0 1rem;}
+
+.hero{background:linear-gradient(135deg,var(--vf),#2d5a20 60%,#1a3d10);color:white;padding:3rem 2rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,.04) 0%,transparent 60%);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.4rem);margin-bottom:.6rem;position:relative;}
+.hero h1 em{font-style:italic;color:#a8d890;}
+.hero p{font-size:.9rem;color:rgba(255,255,255,.78);max-width:540px;margin:0 auto;line-height:1.7;position:relative;}
+
+.steps{display:flex;background:var(--blanc);border-bottom:1px solid #e0e0e0;overflow-x:auto;}
+.stab{flex:1;min-width:110px;padding:.85rem .6rem;text-align:center;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#bbb;border-bottom:3px solid transparent;cursor:pointer;transition:.2s;white-space:nowrap;}
+.stab.active{color:var(--vert);border-bottom-color:var(--vert);background:var(--vc);}
+.stab.done{color:#777;}
+.stab .sn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:#ddd;color:white;font-size:.68rem;font-weight:700;margin-right:.3rem;transition:.2s;}
+.stab.active .sn{background:var(--vert);}
+.stab.done .sn{background:#5a9e4a;}
+
+.content{max-width:800px;margin:0 auto;padding:1.8rem 1.5rem 4rem;}
+
+.panel{background:var(--blanc);border:1px solid #e8e8e8;border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:1.2rem;display:none;}
+.panel.active{display:block;}
+.ph{padding:1.3rem 1.8rem .9rem;border-bottom:1px solid #f0f0f0;}
+.ph h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--vf);margin-bottom:.2rem;}
+.ph p{font-size:.83rem;color:#777;line-height:1.6;}
+.pb{padding:1.4rem 1.8rem;}
+
+.gps-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem;}
+.gcard{border:2px solid #e0e0e0;border-radius:3px;padding:1rem;cursor:pointer;transition:.2s;text-align:center;}
+.gcard:hover,.gcard.sel{border-color:var(--vert);background:var(--vc);}
+.gcard .ico{font-size:1.8rem;margin-bottom:.35rem;}
+.gcard h4{font-size:.82rem;font-weight:600;color:var(--vf);margin-bottom:.2rem;}
+.gcard p{font-size:.72rem;color:#888;line-height:1.4;}
+
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem;}
+.fg{display:flex;flex-direction:column;gap:.3rem;}
+.fg label{font-size:.74rem;font-weight:600;color:#444;text-transform:uppercase;letter-spacing:.05em;}
+.fg input{padding:.62rem .8rem;border:1.5px solid #ddd;border-radius:3px;font-size:.9rem;font-family:'DM Sans',sans-serif;transition:border .2s;}
+.fg input:focus{outline:none;border-color:var(--vert);}
+.fg .hint{font-size:.69rem;color:#aaa;}
+
+.rbox{background:var(--vc);border:1px solid #b5dba8;border-left:3px solid var(--vert);border-radius:0 3px 3px 0;padding:.85rem 1rem;margin-bottom:.9rem;}
+.rbox h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--vf);margin-bottom:.3rem;}
+.rbox .bval{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--vf);}
+.rbox p{font-size:.77rem;color:#666;margin-top:.2rem;}
+
+.compass-row{display:flex;align-items:center;gap:1.1rem;background:var(--gris);border:1px solid #e0e0e0;border-radius:3px;padding:.85rem 1.1rem;margin-bottom:1rem;}
+.cw{flex-shrink:0;width:58px;height:58px;}
+.cw svg{width:100%;height:100%;}
+.ci h4{font-size:.83rem;font-weight:600;color:var(--vf);margin-bottom:.18rem;}
+.ci p{font-size:.78rem;color:#666;line-height:1.5;}
+
+.slider-row{margin-bottom:1rem;}
+.slider-row label{display:flex;justify-content:space-between;font-size:.74rem;font-weight:600;color:#444;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem;}
+.slider-row label span{color:var(--rouge);font-size:.86rem;}
+.slider-row input[type=range]{width:100%;accent-color:var(--rouge);}
+.slider-marks{display:flex;justify-content:space-between;font-size:.67rem;color:#bbb;margin-top:.12rem;}
+
+/* UPLOAD */
+.drop{border:2.5px dashed #ccc;border-radius:4px;padding:2.2rem 1.2rem;text-align:center;cursor:pointer;transition:.2s;background:#fafafa;position:relative;}
+.drop:hover,.drop.drag{border-color:var(--vert);background:var(--vc);}
+.drop input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
+.drop .dico{font-size:2.2rem;margin-bottom:.6rem;opacity:.45;}
+.drop h4{font-size:.88rem;font-weight:600;color:#444;margin-bottom:.25rem;}
+.drop p{font-size:.76rem;color:#aaa;line-height:1.5;}
+
+/* STAGE PHOTO */
+.stage{position:relative;background:#111;border-radius:3px;overflow:hidden;margin-bottom:1rem;}
+.stage img{width:100%;display:block;max-height:420px;object-fit:contain;}
+.stage canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;}
+.stage .ov{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:.65rem 1rem .5rem;pointer-events:none;}
+.ov .ov-loc{font-size:.7rem;color:rgba(255,255,255,.7);}
+.ov .ov-title{font-size:.88rem;font-weight:600;color:white;font-family:'Playfair Display',serif;}
+
+.tbar{display:flex;border:1.5px solid #ddd;border-radius:3px;overflow:hidden;margin-bottom:.9rem;}
+.tbtn{flex:1;padding:.58rem;font-size:.76rem;font-weight:700;border:none;cursor:pointer;transition:.2s;font-family:'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.04em;}
+.tbtn.t-off{background:white;color:#aaa;}
+.tbtn.t-orig{background:var(--vf);color:white;}
+.tbtn.t-sim{background:var(--rouge);color:white;}
+
+/* RESULTS */
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.1rem;}
+.rc{border-left:4px solid var(--vert);background:var(--vc);padding:.9rem 1.1rem;border-radius:0 3px 3px 0;}
+.rc.r{border-left-color:var(--rouge);background:var(--rouge-c);}
+.rc.o{border-left-color:var(--or);background:var(--or-c);}
+.rc h4{font-size:.69rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.35rem;}
+.rc .big{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--vf);line-height:1.1;}
+.rc.r .big{color:var(--rouge-f);}
+.rc.o .big{color:var(--or);}
+.rc p{font-size:.75rem;color:#777;margin-top:.22rem;line-height:1.4;}
+
+.dep-row{display:flex;align-items:center;gap:.65rem;margin-bottom:.35rem;}
+.dep-lbl{font-size:.74rem;color:#555;width:95px;flex-shrink:0;}
+.dep-bw{flex:1;height:9px;background:#eee;border-radius:4px;overflow:hidden;}
+.dep-b{height:100%;background:var(--rouge);border-radius:4px;transition:width .8s;}
+.dep-val{font-size:.74rem;font-weight:600;color:var(--rouge-f);width:48px;text-align:right;flex-shrink:0;}
+
+.sbox{background:var(--vf);color:white;border-radius:4px;padding:1.3rem 1.5rem;text-align:center;margin-bottom:1rem;}
+.sbox h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:.35rem;}
+.sbox p{font-size:.78rem;color:rgba(255,255,255,.75);margin-bottom:.9rem;line-height:1.6;}
+.sbtns{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-top:.6rem;}
+.gitem{aspect-ratio:16/9;border-radius:2px;overflow:hidden;position:relative;background:#ddd;}
+.gitem img{width:100%;height:100%;object-fit:cover;}
+.gitem .gl{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.55);color:white;font-size:.6rem;padding:.18rem .35rem;}
+
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.68rem 1.3rem;font-size:.82rem;font-weight:600;font-family:'DM Sans',sans-serif;border:none;border-radius:3px;cursor:pointer;transition:.15s;text-decoration:none;}
+.btn:hover{filter:brightness(.9);transform:translateY(-1px);}
+.btn-g{background:var(--vert);color:white;}
+.btn-r{background:var(--rouge);color:white;}
+.btn-o{background:white;color:var(--sombre);border:1.5px solid #ccc;}
+.btn-sm{padding:.45rem .85rem;font-size:.75rem;}
+.brow{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.9rem;}
+
+.disc{font-size:.69rem;color:#aaa;line-height:1.6;border-top:1px solid #eee;padding-top:.65rem;margin-top:.8rem;}
+.info-box{background:#f0f5ff;border:1px solid #c8d8f0;border-radius:3px;padding:.75rem 1rem;font-size:.78rem;color:#445;line-height:1.6;margin-bottom:.9rem;}
+
+@media(max-width:640px){nav ul{display:none;}.form-row,.gps-grid,.rgrid{grid-template-columns:1fr;}.gallery{grid-template-columns:repeat(2,1fr);}}
+</style>
+<style id="nav-unified">
+:root{--vf:#1e3d14;--vert:#2d6b1f;--rouge:#b03020;--rouge-f:#7a1a0e;--blanc:#fff;--nh:62px;}
+nav{position:sticky;top:0;z-index:300;background:var(--blanc);border-bottom:3px solid var(--vert);height:var(--nh);display:flex;align-items:center;justify-content:space-between;padding:0 1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.08);font-family:'DM Sans',sans-serif;}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:.92rem;color:var(--vf);text-decoration:none;white-space:nowrap;}
+.nav-logo em{font-style:italic;color:var(--rouge);}
+nav ul{list-style:none;display:flex;gap:0;}
+nav ul a{display:block;padding:0 .75rem;height:var(--nh);line-height:var(--nh);font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#555;text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-3px;transition:.2s;font-family:'DM Sans',sans-serif;}
+nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
+.nav-cta{background:var(--rouge)!important;color:var(--blanc)!important;height:34px!important;line-height:34px!important;margin:auto 0;border-bottom:none!important;border-radius:2px;padding:0 .9rem;font-family:'DM Sans',sans-serif;}
+.nav-cta:hover{background:var(--rouge-f)!important;}
+@media(max-width:800px){nav ul{display:none;}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">NON aux <em>éoliennes</em> de Plouarzel</a>
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="projet.html">Le projet</a></li>
+    <li><a href="infographies.html">Infographies</a></li>
+    <li><a href="carte-panoramique.html">Panoramas</a></li>
+    <li><a href="mon-impact.html" class="on">Mon impact</a></li>
+    <li><a href="actualites.html">Actualités</a></li>
+    <li><a href="agir.html" class="nav-cta">✍ Pétition</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <h1>Quel sera <em>votre</em> impact ?</h1>
+  <p>Uploadez une photo prise depuis chez vous. Le site simule l'impact des éoliennes sur votre paysage et calcule la dépréciation de votre bien.</p>
+</div>
+
+<div class="steps">
+  <div class="stab active" id="t1" onclick="go(1)"><span class="sn">1</span>Ma position</div>
+  <div class="stab" id="t2" onclick="go(2)"><span class="sn">2</span>Ma photo</div>
+  <div class="stab" id="t3" onclick="go(3)"><span class="sn">3</span>Simulation</div>
+  <div class="stab" id="t4" onclick="go(4)"><span class="sn">4</span>Impact & partage</div>
+</div>
+
+<div class="content">
+
+<!-- ═══ ÉTAPE 1 ═══ -->
+<div class="panel active" id="p1">
+  <div class="ph">
+    <h2>📍 Votre position</h2>
+    <p>Localisez votre maison pour calculer la distance et le cap vers les éoliennes.</p>
+  </div>
+  <div class="pb">
+    <div class="gps-grid">
+      <div class="gcard sel" id="m-gps" onclick="setM('gps')">
+        <div class="ico">📡</div><h4>GPS automatique</h4>
+        <p>Utilise le GPS de votre appareil</p>
+      </div>
+      <div class="gcard" id="m-man" onclick="setM('manual')">
+        <div class="ico">✏️</div><h4>Saisie manuelle</h4>
+        <p>Entrez vos coordonnées GPS</p>
+      </div>
+    </div>
+
+    <div id="b-gps">
+      <button class="btn btn-g" onclick="getGPS()">📡 Obtenir ma position</button>
+      <div id="gps-msg" style="font-size:.78rem;color:#888;margin-top:.5rem;min-height:1.3rem;"></div>
+    </div>
+    <div id="b-man" style="display:none;">
+      <div class="form-row">
+        <div class="fg">
+          <label>Latitude</label>
+          <input type="number" id="lat-in" placeholder="ex: 48.4306" step="0.0001">
+          <span class="hint">Clic droit Google Maps → "Qu'y a-t-il ici ?"</span>
+        </div>
+        <div class="fg">
+          <label>Longitude</label>
+          <input type="number" id="lng-in" placeholder="ex: -4.6542" step="0.0001">
+        </div>
+      </div>
+      <button class="btn btn-g" onclick="useMan()">✓ Confirmer ces coordonnées</button>
+    </div>
+
+    <div id="pos-ok" style="display:none;margin-top:1.1rem;">
+      <div class="rbox">
+        <h4>✓ Position enregistrée</h4>
+        <div class="bval" id="pos-v">—</div>
+        <p id="pos-i">—</p>
+      </div>
+      <div class="compass-row">
+        <div class="cw">
+          <svg viewBox="0 0 60 60" id="cmp1">
+            <circle cx="30" cy="30" r="28" fill="#f5f5f5" stroke="#ddd" stroke-width="1.5"/>
+            <text x="30" y="10" text-anchor="middle" font-size="9" fill="#bbb" font-family="Arial">N</text>
+            <text x="30" y="56" text-anchor="middle" font-size="9" fill="#bbb" font-family="Arial">S</text>
+            <text x="7"  y="34" text-anchor="middle" font-size="9" fill="#bbb" font-family="Arial">O</text>
+            <text x="53" y="34" text-anchor="middle" font-size="9" fill="#bbb" font-family="Arial">E</text>
+            <g id="arr1" transform="rotate(0,30,30)">
+              <polygon points="30,7 34,30 30,25 26,30" fill="#b03020"/>
+              <polygon points="30,53 34,30 30,35 26,30" fill="#ccc"/>
+            </g>
+          </svg>
+        </div>
+        <div class="ci">
+          <h4>Direction du projet éolien</h4>
+          <p id="c1-txt">—</p>
+        </div>
+      </div>
+      <div style="border-top:1px solid #eee;padding-top:.9rem;margin-top:.2rem;">
+        <div class="slider-row">
+          <label>Valeur estimée de votre bien <span id="val-d">600 000 €</span></label>
+          <input type="range" id="val-sl" min="100000" max="2000000" step="50000" value="600000" oninput="updV()">
+          <div class="slider-marks"><span>100K€</span><span>500K€</span><span>1M€</span><span>2M€</span></div>
+        </div>
+      </div>
+      <div class="brow">
+        <button class="btn btn-g" onclick="go(2)">Uploader ma photo →</button>
+        <button class="btn btn-o btn-sm" onclick="rstPos()">Modifier la position</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ÉTAPE 2 ═══ -->
+<div class="panel" id="p2">
+  <div class="ph">
+    <h2>📷 Uploadez votre photo</h2>
+    <p>Prenez ou choisissez une photo depuis chez vous, orientée vers <strong id="ph2-dir">le projet éolien</strong>. JPG, PNG ou WebP, max 15 Mo.</p>
+  </div>
+  <div class="pb">
+    <!-- Bandeau direction orienté -->
+    <div id="dir-banner" style="background:linear-gradient(135deg,#1e3d14,#2d6b1f);color:white;border-radius:3px;padding:1rem 1.2rem;margin-bottom:1rem;display:flex;align-items:center;gap:1rem;">
+      <div style="flex-shrink:0;width:52px;height:52px;">
+        <svg viewBox="0 0 52 52" style="width:100%;height:100%;">
+          <circle cx="26" cy="26" r="24" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+          <text x="26" y="9" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.6)" font-family="DM Sans,sans-serif">N</text>
+          <text x="26" y="48" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.6)" font-family="DM Sans,sans-serif">S</text>
+          <text x="5" y="30" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.6)" font-family="DM Sans,sans-serif">O</text>
+          <text x="47" y="30" text-anchor="middle" font-size="8" fill="rgba(255,255,255,.6)" font-family="DM Sans,sans-serif">E</text>
+          <g id="dir-arrow" transform="rotate(0,26,26)">
+            <polygon points="26,5 29,26 26,22 23,26" fill="#b03020"/>
+            <polygon points="26,47 29,26 26,30 23,26" fill="rgba(255,255,255,.4)"/>
+          </g>
+        </svg>
+      </div>
+      <div>
+        <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.7);margin-bottom:.2rem;">📸 Orientez votre photo dans cette direction</div>
+        <div style="font-size:1rem;font-weight:700;" id="dir-text">—</div>
+        <div style="font-size:.78rem;color:rgba(255,255,255,.75);margin-top:.15rem;" id="dir-sub">Entrez votre position à l'étape 1 pour obtenir la direction exacte.</div>
+      </div>
+    </div>
+
+    <div class="drop" id="drop">
+      <input type="file" id="file-in" accept="image/jpeg,image/jpg,image/png,image/webp" onchange="onFile(this.files[0])">
+      <div class="dico">📸</div>
+      <h4>Glissez votre photo ici ou cliquez pour choisir</h4>
+      <p>La photo doit être prise en regardant dans la direction indiquée par la boussole à l'étape 1</p>
+    </div>
+
+    <div id="prev-wrap" style="display:none;margin-top:1rem;">
+      <p style="font-size:.78rem;color:#777;margin-bottom:.5rem;">Aperçu · Ajustez la ligne d'horizon (trait rouge) si nécessaire :</p>
+      <canvas id="hor-cv" style="width:100%;border:1px solid #ddd;border-radius:3px;display:block;margin-bottom:.8rem;"></canvas>
+      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;">
+        <label style="font-size:.74rem;color:#555;white-space:nowrap;font-weight:600;">Horizon :</label>
+        <input type="range" id="hor-sl" min="5" max="90" value="50" style="flex:1;accent-color:var(--vert);" oninput="updHor()">
+        <span id="hor-v" style="font-size:.74rem;color:var(--vf);font-weight:700;white-space:nowrap;">50%</span>
+      </div>
+      <div class="info-box">
+        💡 <strong>Conseil :</strong> réglez le trait rouge sur la vraie ligne de séparation ciel/sol de votre photo. Les éoliennes apparaîtront à partir de cette ligne.
+      </div>
+      <div class="brow">
+        <button class="btn btn-g" onclick="go(3)">Générer la simulation →</button>
+        <button class="btn btn-o btn-sm" onclick="rstPhoto()">Changer de photo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ÉTAPE 3 ═══ -->
+<div class="panel" id="p3">
+  <div class="ph">
+    <h2>🌀 Simulation sur votre photo</h2>
+    <p id="ph3-d">Éoliennes calculées selon votre distance réelle au projet.</p>
+  </div>
+  <div class="pb">
+    <div class="tbar">
+      <button class="tbtn t-orig" id="tb-o" onclick="shOrig()">🌿 Photo originale</button>
+      <button class="tbtn t-off"  id="tb-s" onclick="shSim()">🌀 Avec éoliennes animées</button>
+    </div>
+    <div class="stage" id="st3" style="min-height:180px;">
+      <img id="s3-img" src="" alt="">
+      <canvas id="s3-cv"></canvas>
+      <div class="ov">
+        <div class="ov-loc" id="s3-loc">—</div>
+        <div class="ov-title" id="s3-tit">—</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1rem;">
+      <button class="btn btn-r" onclick="dlSim()">⬇ Télécharger la simulation</button>
+      <button class="btn btn-g" onclick="go(4)">Voir l'impact immobilier →</button>
+      <button class="btn btn-o btn-sm" onclick="go(2)">← Retour</button>
+    </div>
+    <div class="info-box" id="s3-info">—</div>
+  </div>
+</div>
+
+<!-- ═══ ÉTAPE 4 ═══ -->
+<div class="panel" id="p4">
+  <div class="ph">
+    <h2>🏠 Impact immobilier & partage</h2>
+    <p>Estimation basée sur les études scientifiques (ADEME, Cambridge, notaires de France).</p>
+  </div>
+  <div class="pb">
+    <div class="rgrid">
+      <div class="rc r"><h4>Dépréciation estimée</h4><div class="big" id="r-p">—</div><p id="r-t">—</p></div>
+      <div class="rc r"><h4>Valeur après construction</h4><div class="big" id="r-va">—</div><p>Valeur actuelle : <strong id="r-vav">—</strong></p></div>
+      <div class="rc o"><h4>Perte locative / mois</h4><div class="big" id="r-l">—</div><p>Loyer estimé actuel : <strong id="r-lav">—</strong>/mois</p></div>
+      <div class="rc o"><h4>Perte locative sur 20 ans</h4><div class="big" id="r-l20">—</div><p>Durée de vie du parc éolien</p></div>
+    </div>
+
+    <p style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.55rem;">Dépréciation selon la distance</p>
+    <div id="dep-bars"></div>
+    <div class="disc">Sources : ADEME (2013), Bond (Cambridge 2012), Hoen et al. (LBNL 2019), notaires de France 2020-2023. Estimations conservatrices. Ne constituent pas une expertise officielle.</div>
+
+    <div class="sbox" style="margin-top:1.3rem;">
+      <h3>Partagez votre vue sur la carte</h3>
+      <p>Votre simulation (sans données personnelles) sera ajoutée à notre carte panoramique collaborative après validation par notre équipe.</p>
+      <div class="sbtns">
+        <button class="btn btn-r" onclick="share()">📍 Ajouter à la carte</button>
+        <button class="btn btn-o" style="color:white;border-color:rgba(255,255,255,.3);" onclick="dlSim()">⬇ Télécharger</button>
+      </div>
+    </div>
+    <div id="share-ok" style="display:none;">
+      <div class="rbox" style="margin-top:.7rem;">
+        <h4>✓ Merci pour votre contribution !</h4>
+        <p>Votre vue a été soumise. Elle apparaîtra sur la carte après validation.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.1rem;">
+      <p style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.45rem;">Vues partagées par d'autres habitants</p>
+      <div class="gallery" id="gal">
+        <div class="gitem" style="display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#aaa;text-align:center;padding:.5rem;">Soyez le premier à partager !</div>
+      </div>
+    </div>
+
+    <div class="brow">
+      <a href="agir.html" class="btn btn-r">✍ Signer la pétition</a>
+      <button class="btn btn-o btn-sm" onclick="go(3)">← Retour simulation</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const GAVRÉ={lat:48.44253217207138,lng:-4.67718091540542};
+let uLat=null,uLng=null,uDist=null,uBrng=null,uVal=600000;
+let uPhoto=null,horFrac=.50,step=1,meth='gps';
+let showS=false,animId=null,angles=[0,Math.PI*.7,Math.PI*1.4];
+const SPD=[15,16,14].map(r=>r/60*2*Math.PI/60);
+let maskCv=null,maskOk=false;
+
+// Math
+function dkm(a,b,c,d){const R=6371,x=Math.sin((c-a)*Math.PI/360),y=Math.sin((d-b)*Math.PI/360);return R*2*Math.asin(Math.sqrt(x*x+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*y*y));}
+function brng(a,b,c,d){const dl=(d-b)*Math.PI/180,la1=a*Math.PI/180,la2=c*Math.PI/180;return(Math.atan2(Math.sin(dl)*Math.cos(la2),Math.cos(la1)*Math.sin(la2)-Math.sin(la1)*Math.cos(la2)*Math.cos(dl))*180/Math.PI+360)%360;}
+function btx(b){return['Nord','NNE','NE','ENE','Est','ESE','SE','SSE','Sud','SSO','SO','OSO','Ouest','ONO','NO','NNO'][Math.round(b/22.5)%16];}
+function fmt(n){return n.toLocaleString('fr-FR')+'€';}
+function dep(d){if(d<.5)return .25;if(d<1)return .15;if(d<2)return .08;if(d<3)return .04;if(d<5)return .02;return .01;}
+
+// Step 1
+function setM(m){
+  meth=m;
+  document.getElementById('m-gps').classList.toggle('sel',m==='gps');
+  document.getElementById('m-man').classList.toggle('sel',m==='manual');
+  document.getElementById('b-gps').style.display=m==='gps'?'':'none';
+  document.getElementById('b-man').style.display=m==='manual'?'':'none';
+}
+function getGPS(){
+  const el=document.getElementById('gps-msg');
+  el.textContent='📡 Localisation en cours…';
+  if(!navigator.geolocation){el.textContent='⚠ GPS non disponible. Utilisez la saisie manuelle.';return;}
+  navigator.geolocation.getCurrentPosition(p=>cfmPos(p.coords.latitude,p.coords.longitude),()=>{el.textContent='⚠ Impossible. Essayez la saisie manuelle.';},{enableHighAccuracy:true,timeout:10000});
+}
+function useMan(){
+  const la=parseFloat(document.getElementById('lat-in').value),lo=parseFloat(document.getElementById('lng-in').value);
+  if(isNaN(la)||isNaN(lo)||la<47||la>50||lo<-6||lo>-3){alert('Coordonnées invalides.\nLatitude ≈ 48.xx\nLongitude ≈ -4.xx');return;}
+  cfmPos(la,lo);
+}
+function cfmPos(la,lo){
+  uLat=la;uLng=lo;
+  uDist=dkm(la,lo,GAVRÉ.lat,GAVRÉ.lng);
+  uBrng=brng(la,lo,GAVRÉ.lat,GAVRÉ.lng);
+  document.getElementById('b-gps').style.display='none';
+  document.getElementById('b-man').style.display='none';
+  document.getElementById('pos-ok').style.display='';
+  document.getElementById('pos-v').textContent=`${la.toFixed(4)}°N, ${lo.toFixed(4)}°O`;
+  document.getElementById('pos-i').textContent=`À ${uDist.toFixed(1)} km du projet · Cap ${uBrng.toFixed(0)}° (${btx(uBrng)})`;
+  document.getElementById('arr1').setAttribute('transform',`rotate(${uBrng},30,30)`);
+  document.getElementById('c1-txt').textContent=`Cap ${uBrng.toFixed(0)}° (${btx(uBrng)}) — à ${uDist.toFixed(1)} km du projet éolien.`;
+}
+function rstPos(){
+  uLat=uLng=uDist=uBrng=null;
+  document.getElementById('pos-ok').style.display='none';
+  document.getElementById('b-gps').style.display=meth==='gps'?'':'none';
+  document.getElementById('b-man').style.display=meth==='manual'?'':'none';
+}
+function updV(){
+  uVal=parseInt(document.getElementById('val-sl').value);
+  document.getElementById('val-d').textContent=uVal.toLocaleString('fr-FR')+' €';
+}
+
+// Step 2
+const drop=document.getElementById('drop');
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag');});
+drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('drag');if(e.dataTransfer.files[0])onFile(e.dataTransfer.files[0]);});
+
+function onFile(file){
+  if(!file||!file.type.startsWith('image/')){alert('Veuillez choisir une image JPG, PNG ou WebP.');return;}
+  if(file.size>15*1024*1024){alert('Fichier trop volumineux (max 15 Mo).');return;}
+  const rd=new FileReader();
+  rd.onload=e=>{
+    const img=new Image();
+    img.onload=()=>{
+      createImageBitmap(img).then(bmp=>{
+        uPhoto=bmp;
+        drop.style.display='none';
+        document.getElementById('prev-wrap').style.display='';
+        horFrac=.50;document.getElementById('hor-sl').value=50;document.getElementById('hor-v').textContent='50%';
+        drawHorPrev();
+      });
+    };
+    img.src=e.target.result;
+  };
+  rd.readAsDataURL(file);
+}
+function updHor(){
+  horFrac=parseInt(document.getElementById('hor-sl').value)/100;
+  document.getElementById('hor-v').textContent=Math.round(horFrac*100)+'%';
+  drawHorPrev();
+}
+function drawHorPrev(){
+  const cv=document.getElementById('hor-cv');if(!uPhoto)return;
+  const r=uPhoto.width/uPhoto.height;
+  cv.width=cv.clientWidth||600;cv.height=Math.round(cv.width/r);
+  const ctx=cv.getContext('2d');
+  ctx.drawImage(uPhoto,0,0,cv.width,cv.height);
+  const hy=Math.round(horFrac*cv.height);
+  ctx.strokeStyle='rgba(176,48,32,.85)';ctx.lineWidth=2;ctx.setLineDash([8,4]);
+  ctx.beginPath();ctx.moveTo(0,hy);ctx.lineTo(cv.width,hy);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='rgba(176,48,32,.85)';ctx.font='bold 12px DM Sans,sans-serif';
+  ctx.fillText('← Horizon',10,hy-6);
+}
+function rstPhoto(){
+  uPhoto=null;drop.style.display='';
+  document.getElementById('prev-wrap').style.display='none';
+  document.getElementById('file-in').value='';
+}
+
+// Step 3
+function setupSim(){
+  if(!uPhoto||!uDist)return;
+  stopAnim();maskOk=false;
+  const cv=document.createElement('canvas');cv.width=uPhoto.width;cv.height=uPhoto.height;
+  cv.getContext('2d').drawImage(uPhoto,0,0);
+  const img=document.getElementById('s3-img');
+  img.src=cv.toDataURL('image/jpeg',.92);
+  document.getElementById('ph3-d').textContent=`Votre maison est à ${uDist.toFixed(1)} km · Cap ${uBrng.toFixed(0)}° (${btx(uBrng)})`;
+  document.getElementById('s3-loc').textContent=`${uLat.toFixed(4)}°N, ${uLng.toFixed(4)}°O`;
+  document.getElementById('s3-tit').textContent=`${uDist.toFixed(1)} km du projet éolien de Plouarzel`;
+  document.getElementById('s3-info').innerHTML=`ℹ️ Simulation : <strong>3 éoliennes de 150 m</strong>, espacement 380 m, taille calculée à <strong>${uDist.toFixed(1)} km</strong>. Les éoliennes apparaissent derrière les éléments de premier plan.`;
+  img.onload=()=>{buildMask(img);};
+  if(img.complete&&img.src&&img.src!=='')buildMask(img);
+  shOrig();
+}
+function buildMask(img){
+  const st=document.getElementById('st3');
+  maskCv=document.createElement('canvas');
+  maskCv.width=st.clientWidth||700;maskCv.height=img.clientHeight||350;
+  const mc=maskCv.getContext('2d');
+  mc.drawImage(img,0,0,maskCv.width,maskCv.height);
+  const id=mc.getImageData(0,0,maskCv.width,maskCv.height),d=id.data;
+  const hy=Math.round(horFrac*maskCv.height);
+  for(let i=0;i<d.length;i+=4){
+    const py=Math.floor((i/4)/maskCv.width);
+    if(py<hy-12){d[i+3]=0;}
+    else{const l=d[i]*.299+d[i+1]*.587+d[i+2]*.114,s=Math.max(d[i],d[i+1],d[i+2])-Math.min(d[i],d[i+1],d[i+2]);d[i+3]=(l<185||s>22)?255:0;}
+  }
+  mc.putImageData(id,0,0);maskOk=true;
+}
+function tParams(dist,W,H){
+  const boost=dist<2?1.2:dist<4?1.3:1.4;
+  const h=(Math.atan(150/(dist*1000))*180/Math.PI/26.4)*2.5*boost*H;
+  const sp=(Math.atan(380/(dist*1000))*180/Math.PI/90)*W;
+  return{h,sp,cx:W*.50,base:horFrac*H+h*.30};
+}
+function drawT(ctx,cx,by,H,ang){
+  const mh=H*.67,rr=H*.33,ny=by-mh,col='rgba(210,212,218,0.92)';
+  ctx.fillStyle=col;
+  ctx.beginPath();ctx.moveTo(cx-Math.max(2,H*.028),by);ctx.lineTo(cx+Math.max(2,H*.028),by);ctx.lineTo(cx+Math.max(1,H*.016),ny);ctx.lineTo(cx-Math.max(1,H*.016),ny);ctx.closePath();ctx.fill();
+  ctx.beginPath();ctx.ellipse(cx,ny,rr*.24,rr*.13,0,0,Math.PI*2);ctx.fill();
+  for(let i=0;i<3;i++){
+    const a=ang+i*(Math.PI*2/3),p=a+Math.PI/2,tx=cx+rr*Math.cos(a),ty=ny-rr*Math.sin(a),rx=cx+rr*.09*Math.cos(a),ry=ny-rr*.09*Math.sin(a);
+    ctx.beginPath();ctx.moveTo(rx+rr*.10*Math.cos(p),ry-rr*.10*Math.sin(p));ctx.lineTo(rx-rr*.10*Math.cos(p),ry+rr*.10*Math.sin(p));ctx.lineTo(tx-rr*.04*Math.cos(p),ty+rr*.04*Math.sin(p));ctx.lineTo(tx+rr*.04*Math.cos(p),ty-rr*.04*Math.sin(p));ctx.closePath();ctx.fill();
+  }
+  ctx.beginPath();ctx.arc(cx,ny,rr*.065,0,Math.PI*2);ctx.fillStyle='rgba(175,175,180,0.92)';ctx.fill();ctx.fillStyle=col;
+}
+function frame(){
+  if(!showS||!uDist)return;
+  const cv=document.getElementById('s3-cv'),img=document.getElementById('s3-img');
+  const ctx=cv.getContext('2d'),cw=cv.clientWidth,ch=img.clientHeight||300;
+  cv.width=cw;cv.height=ch;ctx.clearRect(0,0,cw,ch);
+  const{h,sp,cx,base}=tParams(uDist,cw,ch);
+  [cx-sp,cx,cx+sp].forEach((x,i)=>drawT(ctx,x,base,h,angles[i]));
+  if(maskOk&&maskCv){ctx.save();ctx.globalCompositeOperation='destination-out';ctx.drawImage(maskCv,0,0,cw,ch);ctx.restore();}
+  angles.forEach((_,i)=>angles[i]+=SPD[i]);
+  animId=requestAnimationFrame(frame);
+}
+function stopAnim(){showS=false;if(animId){cancelAnimationFrame(animId);animId=null;}const cv=document.getElementById('s3-cv');if(cv)cv.getContext('2d').clearRect(0,0,9999,9999);}
+function shOrig(){stopAnim();document.getElementById('tb-o').className='tbtn t-orig';document.getElementById('tb-s').className='tbtn t-off';}
+function shSim(){showS=true;document.getElementById('tb-s').className='tbtn t-sim';document.getElementById('tb-o').className='tbtn t-off';if(animId)cancelAnimationFrame(animId);frame();}
+
+function dlSim(){
+  if(!uPhoto||!uDist){alert('Générez d\'abord la simulation.');return;}
+  const tmp=document.createElement('canvas');tmp.width=uPhoto.width;tmp.height=uPhoto.height;
+  const ctx=tmp.getContext('2d');ctx.drawImage(uPhoto,0,0);
+  const{h,sp,cx,base}=tParams(uDist,tmp.width,tmp.height);
+  [cx-sp,cx,cx+sp].forEach((x,i)=>drawT(ctx,x,base,h,Math.PI/2+i*2*Math.PI/3));
+  // Masque full-res
+  const mk=document.createElement('canvas');mk.width=tmp.width;mk.height=tmp.height;
+  const mc=mk.getContext('2d');mc.drawImage(uPhoto,0,0);
+  const id=mc.getImageData(0,0,tmp.width,tmp.height),d=id.data,hy=Math.round(horFrac*tmp.height);
+  for(let i=0;i<d.length;i+=4){const py=Math.floor((i/4)/tmp.width);if(py<hy-12){d[i+3]=0;}else{const l=d[i]*.299+d[i+1]*.587+d[i+2]*.114,s=Math.max(d[i],d[i+1],d[i+2])-Math.min(d[i],d[i+1],d[i+2]);d[i+3]=(l<185||s>22)?255:0;}}
+  mc.putImageData(id,0,0);
+  ctx.save();ctx.globalCompositeOperation='destination-out';ctx.drawImage(mk,0,0);ctx.restore();
+  const a=document.createElement('a');a.download='simulation-eoliennes-plouarzel.jpg';a.href=tmp.toDataURL('image/jpeg',.93);a.click();
+}
+
+// Step 4
+function setupImpact(){
+  if(!uDist)return;
+  const r=dep(uDist),val=uVal,perte=Math.round(val*r),vap=val-perte;
+  const lb=val*.045/12,pl=Math.round(lb*r*1.3),pl20=pl*12*20;
+  document.getElementById('r-p').textContent='-'+fmt(perte);
+  document.getElementById('r-t').textContent='Taux '+r*100+'% · '+uDist.toFixed(1)+' km du projet';
+  document.getElementById('r-va').textContent=fmt(vap);
+  document.getElementById('r-vav').textContent=fmt(val);
+  document.getElementById('r-l').textContent='-'+pl.toLocaleString('fr-FR')+'€';
+  document.getElementById('r-lav').textContent=Math.round(lb).toLocaleString('fr-FR')+'€';
+  document.getElementById('r-l20').textContent='-'+pl20.toLocaleString('fr-FR')+'€';
+  const bars=[{l:'< 500 m',r:.25},{l:'500m–1km',r:.15},{l:'1–2 km',r:.08},{l:'2–3 km',r:.04},{l:'3–5 km',r:.02},{l:'> 5 km',r:.01}];
+  document.getElementById('dep-bars').innerHTML=bars.map(b=>{
+    const me=dep(uDist)===b.r;
+    return`<div class="dep-row" style="${me?'background:#fff8e8;padding:.22rem .5rem;border-radius:2px;margin:0 -.5rem .3rem;':'margin-bottom:.28rem;'}">
+      <div class="dep-lbl">${me?`<strong>${b.l} ← vous</strong>`:b.l}</div>
+      <div class="dep-bw"><div class="dep-b" style="width:${b.r*400}%;${me?'background:#b03020;':''}"></div></div>
+      <div class="dep-val">-${b.r*100}%</div></div>`;
+  }).join('');
+}
+function share(){document.getElementById('share-ok').style.display='';document.getElementById('share-ok').scrollIntoView({behavior:'smooth'});}
+
+// Navigation
+function go(n){
+  if(n>1&&!uLat){alert('Veuillez d\'abord entrer votre position (étape 1).');return;}
+  if(n>2&&!uPhoto){alert('Veuillez d\'abord uploader une photo (étape 2).');return;}
+  if(step===3&&n!==3)stopAnim();
+  if(n===2){
+    const dirText = uBrng ? `Cap ${uBrng.toFixed(0)}° (${btx(uBrng)}) vers le projet éolien` : '—';
+    const subText = uBrng ? `À ${uDist.toFixed(1)} km — orientez votre appareil photo dans cette direction avant de prendre la photo` : 'Entrez votre position à l\'étape 1.';
+    const el = document.getElementById('dir-text');
+    const sub = document.getElementById('dir-sub');
+    const arrow = document.getElementById('dir-arrow');
+    if(el) el.textContent = dirText;
+    if(sub) sub.textContent = subText;
+    if(arrow && uBrng) arrow.setAttribute('transform', `rotate(${uBrng},26,26)`);
+    if(uBrng) document.getElementById('ph2-dir').textContent=`${uBrng.toFixed(0)}° (${btx(uBrng)})`;
+  }
+  if(n===3)setTimeout(setupSim,80);
+  if(n===4)setupImpact();
+  step=n;
+  for(let i=1;i<=4;i++){
+    document.getElementById(`p${i}`).classList.toggle('active',i===n);
+    const t=document.getElementById(`t${i}`);
+    t.classList.toggle('active',i===n);t.classList.toggle('done',i<n);
+    t.querySelector('.sn').textContent=i<n?'✓':i;
+  }
+  window.scrollTo({top:document.querySelector('.steps').offsetTop-4,behavior:'smooth'});
+}
+window.addEventListener('resize',()=>{if(step===2&&uPhoto)drawHorPrev();});
+updV();
+</script>
+</body>
+</html>

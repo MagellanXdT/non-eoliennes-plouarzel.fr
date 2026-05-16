@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Actualités — Collectif NON aux éoliennes au Gavré</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Raleway:wght@400;600;700;800&display=swap');
+
+:root {
+  --vert: #3a7d2c;
+  --vert-fonce: #2a5c1e;
+  --vert-clair: #e8f4e5;
+  --rouge: #c0392b;
+  --gris-clair: #f5f5f5;
+  --gris-moyen: #e0e0e0;
+  --gris-texte: #555;
+  --sombre: #222;
+  --blanc: #fff;
+  --nav-h: 70px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--sombre);
+  background: var(--blanc);
+  font-size:15px;
+  line-height:1.7;
+}
+a { color: var(--vert-fonce); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+/* NAV */
+nav {
+  position: sticky;
+  top:0; z-index:200;
+  background: var(--blanc);
+  border-bottom: 3px solid var(--vert);
+  height: var(--nav-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 3rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.nav-logo {
+  display:flex;
+  align-items:center;
+  gap:0.8rem;
+  text-decoration:none;
+}
+.nav-logo .logo-badge {
+  background: var(--vert);
+  color:white;
+  font-family:'Raleway',sans-serif;
+  font-weight:800;
+  font-size:0.75rem;
+  padding:0.4rem 0.7rem;
+  line-height:1.3;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+.nav-logo .logo-badge span { display:block; font-size:1rem; }
+nav ul {
+  list-style:none;
+  display:flex;
+  gap:0;
+}
+nav ul li a {
+  display:block;
+  padding: 0 1.1rem;
+  height: var(--nav-h);
+  line-height: var(--nav-h);
+  font-size:0.88rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color: var(--sombre);
+  text-decoration:none;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  margin-bottom:-3px;
+}
+nav ul li a:hover, nav ul li a.active {
+  color: var(--vert);
+  border-bottom-color: var(--vert);
+  text-decoration:none;
+}
+.nav-petition {
+  background: var(--rouge);
+  color:white !important;
+  padding: 0.6rem 1.2rem !important;
+  height:auto !important;
+  line-height:1.4 !important;
+  margin-bottom:0 !important;
+  border-bottom:none !important;
+  font-size:0.82rem !important;
+  display:flex !important;
+  align-items:center;
+  gap:0.4rem;
+}
+.nav-petition:hover { background:#a93226 !important; color:white !important; }
+
+/* PAGE HEADER */
+.page-header {
+  background: var(--vert-fonce);
+  color:white;
+  padding: 2.5rem 3rem;
+  border-bottom: 4px solid var(--vert);
+}
+.page-header .breadcrumb {
+  font-size:0.8rem;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:0.5rem;
+}
+.page-header .breadcrumb a { color:rgba(255,255,255,0.7); }
+.page-header h1 {
+  font-family:'Raleway',sans-serif;
+  font-size:2rem;
+  font-weight:800;
+  letter-spacing:0.02em;
+}
+
+/* CONTENT CONTAINER */
+.container { max-width:1100px; margin:0 auto; padding:0 2rem; }
+.content-wrap { padding: 3rem 0; }
+
+/* TWO COLUMNS */
+.two-col { display:grid; grid-template-columns:2fr 1fr; gap:3rem; align-items:start; }
+.two-col.reverse { grid-template-columns:1fr 2fr; }
+
+/* SIDEBAR */
+.sidebar { position:sticky; top:calc(var(--nav-h) + 1rem); }
+.sidebar-box {
+  background: var(--vert-clair);
+  border:2px solid var(--vert);
+  padding:1.5rem;
+  margin-bottom:1.5rem;
+  text-align:center;
+}
+.sidebar-box h3 {
+  font-family:'Raleway',sans-serif;
+  font-size:1rem;
+  color:var(--vert-fonce);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:1rem;
+}
+.btn-petition-big {
+  display:block;
+  background:var(--rouge);
+  color:white !important;
+  padding:1rem 1.5rem;
+  font-family:'Raleway',sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:0.5rem;
+  transition: background 0.2s;
+  text-decoration:none !important;
+}
+.btn-petition-big:hover { background:#a93226; }
+
+/* ARTICLE CONTENT */
+.article h2 {
+  font-family:'Raleway',sans-serif;
+  font-size:1.35rem;
+  font-weight:700;
+  color:var(--vert-fonce);
+  border-left:4px solid var(--vert);
+  padding-left:0.8rem;
+  margin: 2rem 0 0.8rem;
+}
+.article h2:first-child { margin-top:0; }
+.article p { color:var(--gris-texte); margin-bottom:0.8rem; }
+.article img {
+  width:100%; max-width:100%;
+  margin:1.5rem 0;
+  border:1px solid var(--gris-moyen);
+  display:block;
+}
+.article .img-caption {
+  font-size:0.8rem;
+  color:#888;
+  font-style:italic;
+  text-align:center;
+  margin-top:-1rem;
+  margin-bottom:1.5rem;
+}
+.article ul { margin: 0.5rem 0 0.8rem 1.5rem; color:var(--gris-texte); }
+.article ul li { margin-bottom:0.3rem; }
+.article .highlight-box {
+  background:var(--gris-clair);
+  border-left:4px solid var(--rouge);
+  padding:1rem 1.2rem;
+  margin:1.5rem 0;
+  font-weight:600;
+  color:var(--sombre);
+  font-size:0.95rem;
+}
+
+/* HERO (accueil) */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.45));
+  min-height:460px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:4rem 2rem 3rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  z-index:-1;
+}
+.hero-content { position:relative; z-index:1; }
+.hero h1 {
+  font-family:'Raleway',sans-serif;
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:800;
+  color:white;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  text-shadow:0 2px 15px rgba(0,0,0,0.5);
+  margin-bottom:0.6rem;
+}
+.hero .sub {
+  font-size:1.1rem;
+  color:rgba(255,255,255,0.88);
+  margin-bottom:2rem;
+  font-weight:300;
+}
+.btn-hero {
+  display:inline-block;
+  background:var(--rouge);
+  color:white !important;
+  padding:0.9rem 2.5rem;
+  font-family:'Raleway',sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  text-decoration:none !important;
+  transition:background 0.2s, transform 0.2s;
+  box-shadow:0 4px 15px rgba(192,57,43,0.4);
+}
+.btn-hero:hover { background:#a93226; transform:translateY(-2px); }
+
+/* ACCUEIL NEWS */
+.actu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin:2rem 0; }
+.actu-card {
+  border:1px solid var(--gris-moyen);
+  padding:1.2rem;
+  transition:box-shadow 0.2s;
+}
+.actu-card:hover { box-shadow:0 4px 15px rgba(0,0,0,0.08); }
+.actu-card .date { font-size:0.78rem; color:#999; margin-bottom:0.4rem; }
+.actu-card h4 {
+  font-family:'Raleway',sans-serif;
+  font-size:0.95rem;
+  font-weight:700;
+  color:var(--vert-fonce);
+  margin-bottom:0.5rem;
+}
+.actu-card p { font-size:0.87rem; color:var(--gris-texte); }
+.actu-card .lire-plus {
+  display:inline-block;
+  margin-top:0.6rem;
+  font-size:0.82rem;
+  font-weight:600;
+  color:var(--vert);
+}
+
+/* ACCUEIL QUISOMMESNOUS */
+.qui-section {
+  background:var(--vert-fonce);
+  color:white;
+  padding:3.5rem 2rem;
+  text-align:center;
+}
+.qui-section h2 {
+  font-family:'Raleway',sans-serif;
+  font-size:1.6rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  margin-bottom:1.2rem;
+}
+.qui-section p {
+  max-width:680px;
+  margin:0 auto;
+  color:rgba(255,255,255,0.85);
+  font-size:1rem;
+  line-height:1.8;
+}
+
+/* ACCUEIL 3 BLOCS */
+.blocs-home {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border-top:4px solid var(--vert);
+}
+.bloc-home {
+  padding:2.5rem;
+  border-right:1px solid var(--gris-moyen);
+  border-bottom:1px solid var(--gris-moyen);
+}
+.bloc-home:last-child { border-right:none; }
+.bloc-home h3 {
+  font-family:'Raleway',sans-serif;
+  font-size:1.1rem;
+  font-weight:700;
+  text-transform:uppercase;
+  color:var(--vert-fonce);
+  letter-spacing:0.06em;
+  margin-bottom:0.6rem;
+}
+.bloc-home p { font-size:0.9rem; color:var(--gris-texte); margin-bottom:1rem; }
+.btn-vert {
+  display:inline-block;
+  background:var(--vert);
+  color:white !important;
+  padding:0.6rem 1.2rem;
+  font-size:0.85rem;
+  font-weight:600;
+  text-decoration:none !important;
+  transition:background 0.2s;
+}
+.btn-vert:hover { background:var(--vert-fonce); }
+
+/* GALERIE */
+.galerie-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+  margin:1.5rem 0;
+}
+.galerie-item img {
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  border:1px solid var(--gris-moyen);
+  display:block;
+  transition:opacity 0.2s;
+}
+.galerie-item:hover img { opacity:0.9; }
+.galerie-item .legende {
+  font-size:0.82rem;
+  color:#888;
+  font-style:italic;
+  padding:0.4rem 0.2rem;
+  border-bottom:1px solid var(--gris-moyen);
+}
+
+/* AGIR PAGE */
+.agir-list { list-style:none; margin:1rem 0; }
+.agir-list li {
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+  padding:1rem;
+  border:1px solid var(--gris-moyen);
+  margin-bottom:0.6rem;
+  background:var(--gris-clair);
+}
+.agir-list li .num {
+  flex-shrink:0;
+  width:2rem; height:2rem;
+  background:var(--vert);
+  color:white;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700;
+  font-size:0.9rem;
+}
+.agir-list li .txt strong { display:block; margin-bottom:0.2rem; color:var(--sombre); font-size:0.95rem; }
+.agir-list li .txt span { font-size:0.88rem; color:var(--gris-texte); }
+
+/* PETITION BANNER */
+.petition-banner {
+  background:var(--rouge);
+  color:white;
+  padding:3rem 2rem;
+  text-align:center;
+  margin:3rem 0;
+}
+.petition-banner h2 {
+  font-family:'Raleway',sans-serif;
+  font-size:1.5rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:1rem;
+}
+.petition-banner p { color:rgba(255,255,255,0.85); margin-bottom:1.5rem; }
+.btn-petition-banner {
+  display:inline-block;
+  background:white;
+  color:var(--rouge) !important;
+  padding:0.9rem 2.5rem;
+  font-family:'Raleway',sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  text-decoration:none !important;
+  transition:background 0.2s;
+}
+.btn-petition-banner:hover { background:#f0e0e0; }
+
+/* FOOTER */
+footer {
+  background:#1a1a1a;
+  color:rgba(255,255,255,0.5);
+  padding:2rem 3rem;
+  font-size:0.82rem;
+}
+.footer-inner {
+  max-width:1100px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:1rem;
+}
+footer a { color:rgba(255,255,255,0.6); }
+footer a:hover { color:white; }
+footer .footer-links { display:flex; gap:2rem; }
+
+@media(max-width:768px){
+  nav { padding:0 1rem; }
+  nav ul { display:none; }
+  .two-col, .blocs-home { grid-template-columns:1fr; }
+  .actu-grid { grid-template-columns:1fr; }
+  .galerie-grid { grid-template-columns:1fr; }
+  .page-header { padding:1.5rem; }
+  .container { padding:0 1rem; }
+}
+</style>
+
+<style id="nav-unified">
+:root{--vf:#1e3d14;--vert:#2d6b1f;--rouge:#b03020;--rouge-f:#7a1a0e;--blanc:#fff;--nh:62px;}
+nav{position:sticky;top:0;z-index:300;background:var(--blanc);border-bottom:3px solid var(--vert);height:var(--nh);display:flex;align-items:center;justify-content:space-between;padding:0 1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.08);font-family:'DM Sans',sans-serif;}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:.92rem;color:var(--vf);text-decoration:none;white-space:nowrap;}
+.nav-logo em{font-style:italic;color:var(--rouge);}
+nav ul{list-style:none;display:flex;gap:0;}
+nav ul a{display:block;padding:0 .75rem;height:var(--nh);line-height:var(--nh);font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#555;text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-3px;transition:.2s;font-family:'DM Sans',sans-serif;}
+nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
+.nav-cta{background:var(--rouge)!important;color:var(--blanc)!important;height:34px!important;line-height:34px!important;margin:auto 0;border-bottom:none!important;border-radius:2px;padding:0 .9rem;font-family:'DM Sans',sans-serif;}
+.nav-cta:hover{background:var(--rouge-f)!important;}
+@media(max-width:800px){nav ul{display:none;}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">NON aux <em>éoliennes</em> de Plouarzel</a>
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="projet.html">Le projet</a></li>
+    <li><a href="infographies.html">Infographies</a></li>
+    <li><a href="carte-panoramique.html">Panoramas</a></li>
+    <li><a href="mon-impact.html">Mon impact</a></li>
+    <li><a href="actualites.html" class="on">Actualités</a></li>
+    <li><a href="agir.html" class="nav-cta">✍ Pétition</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <p class="breadcrumb"><a href="index.html">Accueil</a> &rsaquo; Actualités</p>
+    <h1>Actualités</h1>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <div class="container">
+    <div class="two-col">
+      <div class="article">
+
+        <h2>Le bruit des éoliennes débattu au Parlement européen — Mars 2026</h2>
+        <p>La question des nuisances sonores générées par les éoliennes terrestres a fait l'objet d'un débat au Parlement européen en mars 2026. Des eurodéputés ont soulevé l'insuffisance des normes actuelles de mesure du bruit éolien, notamment concernant les infrasons et les basses fréquences, peu couverts par la réglementation existante.</p>
+        <p>Ces éléments viennent renforcer les arguments du collectif concernant les nuisances que subiraient les riverains d'un éventuel parc éolien au Gavré.</p>
+
+        <h2>Nouvelles études sur l'impact des éoliennes sur les chauves-souris — Février 2026</h2>
+        <p>De nouvelles publications scientifiques confirment que les chauves-souris sont les mammifères les plus sensibles à l'implantation de parcs éoliens. Les espèces qui chassent en espace dégagé ou qui effectuent de grandes migrations sont particulièrement exposées.</p>
+        <p>Au-delà de la mortalité directe, les travaux de défrichement et de terrassement nécessaires à la construction des éoliennes détruisent les gîtes de repos et de reproduction ainsi que les corridors de déplacement. Le Gavré, avec sa forêt riche en insectes, constitue un terrain de chasse privilégié pour de nombreuses espèces protégées.</p>
+
+        <h2>Patrimoine et covisibilité : la réglementation est claire — Janvier 2026</h2>
+        <p>La réglementation française prévoit une zone de protection de 500 mètres autour des monuments historiques classés. Mais au-delà de cette distance réglementaire minimale, la jurisprudence récente des tribunaux administratifs tend à prendre en compte l'impact visuel des éoliennes sur les monuments et leurs abords, parfois jusqu'à plusieurs kilomètres.</p>
+        <p>Le menhir de Kerloas, classé Monument Historique depuis 1883, et le château de Kervatoux constituent des éléments patrimoniaux dont la covisibilité doit être préservée.</p>
+
+        <h2>Rendement réel des éoliennes : des chiffres à connaître — Décembre 2025</h2>
+        <p>Selon les données publiées par RTE, le facteur de charge moyen des éoliennes terrestres en France est d'environ 24%. Cela signifie qu'une éolienne ne produit à pleine puissance que l'équivalent de 2 100 heures par an, sur 8 760 heures que compte une année. La production est donc très inférieure à la puissance nominale affichée par les promoteurs.</p>
+        <p>Par ailleurs, les périodes de forte production éolienne coïncident souvent avec des périodes de faible demande (nuits, week-ends), ce qui génère des prix négatifs sur le marché de l'électricité — une situation où les producteurs doivent payer pour écouler leur électricité, à la charge des contribuables.</p>
+
+        <h2>La Convention européenne du paysage : un outil juridique méconnu — Novembre 2025</h2>
+        <p>La Convention européenne du paysage, ratifiée par la France, impose aux pouvoirs publics de protéger, gérer et aménager les paysages européens. Cette convention s'applique à l'ensemble des paysages, qu'ils soient remarquables ou ordinaires. Elle constitue un argument juridique supplémentaire pour s'opposer à l'implantation d'éoliennes dans des territoires à haute valeur paysagère.</p>
+
+        <div class="petition-banner">
+          <h2>RESTEZ INFORMÉS</h2>
+          <p>Rejoignez le collectif pour recevoir les actualités du dossier directement par e-mail.</p>
+          <a href="agir.html" class="btn-petition-banner">Nous rejoindre</a>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="sidebar-box">
+          <h3>Agir maintenant</h3>
+          <a href="https://www.change.org" target="_blank" class="btn-petition-big">✍ SIGNER LA PÉTITION</a>
+        </div>
+        <div class="sidebar-box" style="text-align:left;background:white;">
+          <h3>Liens utiles</h3>
+          <ul style="list-style:none;font-size:0.88rem;line-height:2;">
+            <li><a href="projet.html">→ Comprendre le projet</a></li>
+            <li><a href="photos.html">→ Galerie photos</a></li>
+            <li><a href="agir.html">→ Comment agir ?</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <span>© Collectif NON aux éoliennes de Plouarzel — Finistère, Bretagne</span>
+  <div class="footer-links">
+    <a href="projet.html">Le projet</a>
+    <a href="infographies.html">Infographies</a>
+    <a href="carte-panoramique.html">Panoramas</a>
+    <a href="mon-impact.html">Mon impact</a>
+    <a href="agir.html">Pétition</a>
+    <a href="mailto:contact@non-eoliennes-plouarzel.fr">Contact</a>
+  </div>
+</footer>
+</body>
+</html>

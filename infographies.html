@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Infographies — NON aux éoliennes de Plouarzel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vf:#1e3d14;--vert:#2d6b1f;--vc:#e8f4e5;--vcd:#b5dba8;
+  --rouge:#b03020;--rouge-f:#7a1a0e;--rouge-c:#fdf0ee;
+  --or:#c8921a;--or-c:#fff8e8;
+  --gris:#f2ede6;--gris2:#e8e0d4;--sombre:#1a1a1a;--blanc:#fff;
+  --nh:62px;
+  --shadow:0 4px 20px rgba(0,0,0,.09);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{font-family:'DM Sans',sans-serif;background:var(--gris);color:var(--sombre);min-height:100%;}
+a{color:var(--vf);text-decoration:none;}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:300;
+  background:var(--blanc);border-bottom:3px solid var(--vert);
+  height:var(--nh);display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;
+  color:var(--vf);text-decoration:none;white-space:nowrap;
+}
+.nav-logo em{font-style:italic;color:var(--rouge);}
+nav ul{list-style:none;display:flex;gap:0;}
+nav ul a{
+  display:block;padding:0 .85rem;height:var(--nh);line-height:var(--nh);
+  font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+  color:#555;text-decoration:none;
+  border-bottom:3px solid transparent;margin-bottom:-3px;transition:.2s;
+}
+nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
+.nav-cta{
+  background:var(--rouge)!important;color:var(--blanc)!important;
+  height:34px!important;line-height:34px!important;
+  margin:auto 0;border-bottom:none!important;border-radius:2px;padding:0 1rem;
+}
+.nav-cta:hover{background:var(--rouge-f)!important;}
+
+/* ── PAGE HEADER ── */
+.page-header{
+  background:linear-gradient(135deg,var(--vf),#2d5a20 60%,#1a3d10);
+  color:var(--blanc);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;
+}
+.page-header::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 20% 50%,rgba(255,255,255,.04),transparent 60%);
+}
+.page-header .bc{font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;position:relative;}
+.page-header .bc a{color:rgba(255,255,255,.65);}
+.page-header h1{
+  font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);
+  position:relative;margin-bottom:.4rem;
+}
+.page-header p{font-size:.85rem;color:rgba(255,255,255,.75);max-width:620px;line-height:1.7;position:relative;}
+
+/* ── CONTAINER ── */
+.container{max-width:1060px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+/* ── CARDS ── */
+.card{
+  background:var(--blanc);border:1px solid var(--gris2);
+  border-radius:4px;box-shadow:var(--shadow);margin-bottom:2rem;overflow:hidden;
+}
+.card-head{padding:1.3rem 1.8rem 1rem;border-bottom:1px solid #f0f0f0;}
+.card-num{
+  display:inline-block;background:var(--rouge);color:var(--blanc);
+  font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:700;
+  padding:.18rem .55rem;letter-spacing:.08em;margin-bottom:.45rem;border-radius:1px;
+}
+.card-head h2{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--vf);margin-bottom:.25rem;}
+.card-head p{font-size:.82rem;color:#777;line-height:1.65;max-width:680px;}
+.card-body{padding:1.4rem 1.8rem 1.8rem;}
+
+/* ── KEY NUMBERS ── */
+.keynums{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-bottom:1.4rem;}
+.kn{background:var(--gris);border-radius:3px;padding:.9rem 1rem;text-align:center;}
+.kn .v{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--rouge);display:block;margin-bottom:.2rem;line-height:1.1;}
+.kn .l{font-size:.74rem;color:#666;line-height:1.4;}
+
+/* ── SOURCE BOX ── */
+.src{
+  background:var(--vc);border:1px solid var(--vcd);border-left:3px solid var(--vert);
+  border-radius:0 3px 3px 0;padding:.7rem 1rem;margin-top:1.2rem;
+  font-size:.74rem;color:#3a5c30;line-height:1.65;
+}
+.src strong{display:block;margin-bottom:.18rem;color:var(--vf);}
+
+/* ── FOOTER ── */
+footer{
+  background:#111;color:rgba(255,255,255,.45);
+  padding:1.5rem 2rem;font-size:.74rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+footer a{color:rgba(255,255,255,.55);}
+footer a:hover{color:var(--blanc);}
+.footer-links{display:flex;gap:1.5rem;}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.7rem 1.4rem;font-size:.82rem;font-weight:600;
+  font-family:'DM Sans',sans-serif;border:none;border-radius:3px;
+  cursor:pointer;transition:.15s;text-decoration:none;
+}
+.btn:hover{filter:brightness(.9);transform:translateY(-1px);}
+.btn-g{background:var(--vert);color:var(--blanc);}
+.btn-r{background:var(--rouge);color:var(--blanc);}
+.btn-o{background:var(--blanc);color:var(--sombre);border:1.5px solid #ccc;}
+
+/* ── CTA BAND ── */
+.cta-band{
+  background:var(--rouge);border-radius:4px;padding:2rem;
+  text-align:center;color:var(--blanc);margin-top:.5rem;
+}
+.cta-band h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.45rem;}
+.cta-band p{font-size:.83rem;color:rgba(255,255,255,.8);margin-bottom:1.1rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.cta-band a{
+  display:inline-block;background:var(--blanc);color:var(--rouge);
+  padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;
+  border-radius:3px;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;
+}
+
+@media(max-width:700px){
+  nav ul{display:none;}
+  .keynums{grid-template-columns:1fr 1fr;}
+  .card-body,.card-head{padding:1rem 1rem 1.2rem;}
+}
+</style>
+<style>
+/* INFOGRAPHIES SPECIFIC */
+.widget-wrap{background:#f9f6f1;border:1px solid var(--gris2);border-radius:3px;padding:1.2rem;margin-bottom:1rem;}
+canvas{display:block;width:100%;height:auto;}
+
+/* PIE CHART */
+.pie-layout{display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap;}
+.pie-legend{flex:1;min-width:220px;display:flex;flex-direction:column;gap:.55rem;}
+.leg-item{display:flex;align-items:flex-start;gap:.7rem;}
+.leg-sw{width:13px;height:13px;border-radius:2px;flex-shrink:0;margin-top:2px;}
+.leg-label{font-size:.78rem;font-weight:600;color:#222;}
+.leg-pct{font-weight:800;font-size:.85rem;}
+.leg-eur{font-size:.72rem;color:#666;}
+.leg-note{font-size:.68rem;color:#999;font-style:italic;}
+.total-box{background:var(--vf);color:var(--blanc);border-radius:3px;padding:.7rem 1rem;text-align:center;margin-top:.8rem;font-size:.78rem;}
+.total-box strong{font-size:1rem;display:block;font-family:'Playfair Display',serif;}
+
+/* IMMO CARDS */
+.immo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:1.2rem;}
+.immo-card{background:var(--blanc);border:2px solid var(--gris2);border-radius:3px;padding:.9rem .7rem;text-align:center;}
+.immo-card.hot{border-color:var(--rouge);background:var(--rouge-c);}
+.immo-dist{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#888;margin-bottom:.3rem;}
+.immo-pct{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--rouge);line-height:1.1;margin-bottom:.2rem;}
+.immo-perte{font-size:.75rem;font-weight:600;color:#333;}
+.immo-loyer{font-size:.68rem;color:#888;margin-top:.15rem;}
+.immo-src{font-size:.65rem;color:var(--rouge);font-style:italic;margin-top:.2rem;}
+.bar-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem;}
+.bar-lbl{font-size:.74rem;color:#555;width:80px;flex-shrink:0;}
+.bar-w{flex:1;background:#eee;border-radius:3px;height:14px;overflow:hidden;}
+.bar-f{height:100%;background:linear-gradient(90deg,var(--rouge-f),var(--rouge));border-radius:3px;}
+.bar-v{font-size:.74rem;font-weight:700;color:var(--rouge-f);width:85px;text-align:right;flex-shrink:0;}
+
+/* BETON LAYOUT */
+.beton-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
+.beton-facts{display:flex;flex-direction:column;gap:.7rem;}
+.beton-fact{background:var(--blanc);border-left:3px solid var(--rouge);padding:.7rem .9rem;border-radius:0 3px 3px 0;}
+.beton-fact .fv{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--rouge);}
+.beton-fact .fl{font-size:.75rem;color:#666;margin-top:.1rem;line-height:1.4;}
+.beton-comps{background:var(--blanc);border-radius:3px;padding:.8rem 1rem;}
+.beton-comps h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--vf);margin-bottom:.6rem;}
+.beton-ci{display:flex;gap:.6rem;align-items:center;margin-bottom:.4rem;font-size:.78rem;color:#555;}
+.beton-ci span{font-size:1.1rem;}
+.dem-box{background:var(--or-c);border:1px solid #e8c060;border-radius:3px;padding:.7rem .9rem;font-size:.75rem;color:#7a5a00;line-height:1.6;margin-top:.7rem;}
+.fn{font-size:.7rem;color:#aaa;text-align:center;margin-top:.8rem;line-height:1.6;}
+
+@media(max-width:640px){
+  .immo-grid{grid-template-columns:1fr 1fr;}
+  .beton-layout{grid-template-columns:1fr;}
+  .pie-layout{flex-direction:column;}
+}
+</style>
+<style id="nav-unified">
+:root{--vf:#1e3d14;--vert:#2d6b1f;--rouge:#b03020;--rouge-f:#7a1a0e;--blanc:#fff;--nh:62px;}
+nav{position:sticky;top:0;z-index:300;background:var(--blanc);border-bottom:3px solid var(--vert);height:var(--nh);display:flex;align-items:center;justify-content:space-between;padding:0 1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.08);font-family:'DM Sans',sans-serif;}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:.92rem;color:var(--vf);text-decoration:none;white-space:nowrap;}
+.nav-logo em{font-style:italic;color:var(--rouge);}
+nav ul{list-style:none;display:flex;gap:0;}
+nav ul a{display:block;padding:0 .75rem;height:var(--nh);line-height:var(--nh);font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#555;text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-3px;transition:.2s;font-family:'DM Sans',sans-serif;}
+nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
+.nav-cta{background:var(--rouge)!important;color:var(--blanc)!important;height:34px!important;line-height:34px!important;margin:auto 0;border-bottom:none!important;border-radius:2px;padding:0 .9rem;font-family:'DM Sans',sans-serif;}
+.nav-cta:hover{background:var(--rouge-f)!important;}
+@media(max-width:800px){nav ul{display:none;}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">NON aux <em>éoliennes</em> de Plouarzel</a>
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="projet.html">Le projet</a></li>
+    <li><a href="infographies.html" class="on">Infographies</a></li>
+    <li><a href="carte-panoramique.html">Panoramas</a></li>
+    <li><a href="mon-impact.html">Mon impact</a></li>
+    <li><a href="actualites.html">Actualités</a></li>
+    <li><a href="agir.html" class="nav-cta">✍ Pétition</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="bc"><a href="index.html">Accueil</a> › Infographies</div>
+  <h1>Les chiffres qui font réfléchir</h1>
+  <p>Quatre infographies pour comprendre l'ampleur réelle du projet éolien de Plouarzel : la taille des machines, qui touche les revenus, l'impact sur votre bien, et ce qui reste enfoui dans le sol.</p>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════
+  1. COMPARAISON DE HAUTEUR
+═══════════════════════════════════════ -->
+<div class="card">
+  <div class="card-head">
+    <div class="card-num">INFOGRAPHIE 1</div>
+    <h2>À quelle hauteur ? L'éolienne comparée aux repères du territoire</h2>
+    <p>Une éolienne de 150 m en bout de pale. Pour visualiser ce que cela représente, la voici comparée aux monuments emblématiques de Plouarzel — à l'échelle exacte.</p>
+  </div>
+  <div class="card-body">
+    <div class="keynums">
+      <div class="kn"><span class="v">150 m</span><span class="l">Hauteur en bout de pale — projet BayWa r.e.</span></div>
+      <div class="kn"><span class="v">× 16</span><span class="l">L'éolienne est 16× plus haute que le menhir de Kerloas (9,5 m)</span></div>
+      <div class="kn"><span class="v">× 4</span><span class="l">Plus haute que le phare de Trézien (37 m) et l'église Saint-Arzel (36 m)</span></div>
+    </div>
+
+    <div class="widget-wrap" style="background:#eaf4fb;padding:.5rem;">
+      <canvas id="cv-hauteurs" width="700" height="520" style="display:block;width:100%;height:auto;"></canvas>
+    </div>
+    <div class="src">
+      <strong>Sources</strong>
+      Hauteur éolienne : BayWa r.e., lettre d'information n°1 (2026) · Phare de Trézien : 37 m (DREAL Bretagne) · Église Saint-Arzel de Plouarzel : 36 m · Menhir de Kerloas : 9,50 m, classé Monument Historique depuis 1883.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  2. RÉPARTITION DES REVENUS
+═══════════════════════════════════════ -->
+<div class="card">
+  <div class="card-head">
+    <div class="card-num">INFOGRAPHIE 2</div>
+    <h2>Qui touche quoi ? La répartition des revenus du parc éolien</h2>
+    <p>Pour 3 éoliennes de 4 MW, le chiffre d'affaires annuel dépasse 2 millions d'euros. La quasi-totalité revient aux financiers et au développeur. Les riverains qui subissent les nuisances : 0 €.</p>
+  </div>
+  <div class="card-body">
+    <div class="keynums">
+      <div class="kn"><span class="v">2,1 M€</span><span class="l">Chiffre d'affaires annuel du parc (3 × 4 MW)</span></div>
+      <div class="kn"><span class="v">93 %</span><span class="l">Part captée par le développeur, les fonds et les banques</span></div>
+      <div class="kn"><span class="v">0 €</span><span class="l">Compensation pour les riverains qui subissent les nuisances</span></div>
+    </div>
+
+    <div class="widget-wrap">
+      <div class="pie-layout">
+        <canvas id="cv-pie" width="200" height="200" style="display:block;width:200px;height:200px;flex-shrink:0;"></canvas>
+        <div class="pie-legend" id="pie-legend"></div>
+      </div>
+      <div class="total-box" style="max-width:460px;margin:.8rem auto 0;">
+        Chiffre d'affaires annuel total estimé
+        <strong>≈ 2 100 000 €/an</strong>
+      </div>
+    </div>
+    <div class="fn">Sources : France Énergie Éolienne, Éolise.fr, données fiscales IFER 2024. Estimations représentatives d'un parc type 4 MW.</div>
+    <div class="src">
+      <strong>Méthode de calcul</strong>
+      CA : 3 éoliennes × 4 MW × 2 500 h/an × 70 €/MWh. Taxes IFER : 8 620 €/MW/an (barème 2024). Loyers fonciers : 1 000–5 000 €/MW (France Énergie Éolienne). Indemnité fermier : 600–830 €/MW. Part financière : ratio dette/capital 70-80% marché éolien européen.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  3. IMPACT IMMOBILIER
+═══════════════════════════════════════ -->
+<div class="card">
+  <div class="card-head">
+    <div class="card-num">INFOGRAPHIE 3</div>
+    <h2>Impact sur la valeur de votre maison</h2>
+    <p>Les études scientifiques et la jurisprudence française établissent une dépréciation significative et durable des biens immobiliers proches d'un parc éolien. Pour une maison de 600 000 €, les pertes sont considérables.</p>
+  </div>
+  <div class="card-body">
+    <div class="keynums">
+      <div class="kn"><span class="v">−20 à −40%</span><span class="l">Dépréciation à moins de 500 m (CA Rennes 2024)</span></div>
+      <div class="kn"><span class="v">−120 000 €</span><span class="l">Perte de valeur pour une maison à 1 km (600 000 €)</span></div>
+      <div class="kn"><span class="v">20 ans</span><span class="l">Durée pendant laquelle la perte locative s'accumule</span></div>
+    </div>
+
+    <div class="widget-wrap">
+      <div class="immo-grid">
+        <div class="immo-card hot">
+          <div class="immo-dist">≤ 500 m</div>
+          <div class="immo-pct">−20 à −40%</div>
+          <div class="immo-perte">−120 à −240 K€</div>
+          <div class="immo-loyer">Loyer : −440 à −880 €/mois</div>
+          <div class="immo-src">CA Rennes 2024 : 20% retenu</div>
+        </div>
+        <div class="immo-card hot">
+          <div class="immo-dist">1 km</div>
+          <div class="immo-pct">−15 à −20%</div>
+          <div class="immo-perte">−90 à −120 K€</div>
+          <div class="immo-loyer">Loyer : −330 à −440 €/mois</div>
+          <div class="immo-src">Hoen et al. (LBNL 2019)</div>
+        </div>
+        <div class="immo-card">
+          <div class="immo-dist">2 km</div>
+          <div class="immo-pct">−6 à −8%</div>
+          <div class="immo-perte">−36 à −48 K€</div>
+          <div class="immo-loyer">Loyer : −130 à −175 €/mois</div>
+          <div class="immo-src">Bond, Cambridge (2012)</div>
+        </div>
+        <div class="immo-card">
+          <div class="immo-dist">3 km</div>
+          <div class="immo-pct">−2 à −4%</div>
+          <div class="immo-perte">−12 à −24 K€</div>
+          <div class="immo-loyer">Loyer : −44 à −88 €/mois</div>
+          <div class="immo-src">Effet résiduel documenté</div>
+        </div>
+      </div>
+
+      <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.6rem;">Perte de valeur vénale pour une maison à 600 000 €</p>
+      <div class="bar-row"><div class="bar-lbl">≤ 500 m</div><div class="bar-w"><div class="bar-f" style="width:100%"></div></div><div class="bar-v">−180 000 €</div></div>
+      <div class="bar-row"><div class="bar-lbl">1 km</div><div class="bar-w"><div class="bar-f" style="width:63%"></div></div><div class="bar-v">−105 000 €</div></div>
+      <div class="bar-row"><div class="bar-lbl">2 km</div><div class="bar-w"><div class="bar-f" style="width:24%"></div></div><div class="bar-v">−42 000 €</div></div>
+      <div class="bar-row"><div class="bar-lbl">3 km</div><div class="bar-w"><div class="bar-f" style="width:10%"></div></div><div class="bar-v">−18 000 €</div></div>
+
+      <div style="background:var(--or-c);border:1px solid #e8c060;border-radius:3px;padding:.8rem 1rem;font-size:.78rem;color:#7a5a00;line-height:1.6;margin-top:1rem;">
+        ⚠️ <strong>Perte locative sur 20 ans :</strong> À 500 m, la perte cumulée peut dépasser <strong>200 000 €</strong> en valeur vénale + loyers. Cette dépréciation est <strong>permanente</strong> : les prix ne remontent pas après démantèlement.
+      </div>
+    </div>
+
+    <div class="src">
+      <strong>Sources juridiques et scientifiques</strong>
+      CA Rennes, mars 2024 (dépréciation de 20% retenue à moins de 500 m) · ADEME (2013) · Hoen et al., Lawrence Berkeley National Laboratory (2019) · Bond, Université de Cambridge (2012) · Vyn & McCullough (2014) · Données notaires de France (2020–2023).
+    </div>
+
+    <div style="margin-top:1.2rem;text-align:center;">
+      <a href="mon-impact.html" class="btn btn-r">🏠 Calculez l'impact sur votre propre maison →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+  4. FONDATIONS BÉTON
+═══════════════════════════════════════ -->
+<div class="card">
+  <div class="card-head">
+    <div class="card-num">INFOGRAPHIE 4</div>
+    <h2>Les fondations cachées : 700 m³ de béton par éolienne</h2>
+    <p>Ce que personne ne voit, mais qui reste pour toujours. Chaque éolienne repose sur un socle de béton armé de 20 m de diamètre et 3,5 m de profondeur, définitivement enfoui dans les champs bretons.</p>
+  </div>
+  <div class="card-body">
+    <div class="keynums">
+      <div class="kn"><span class="v">700 m³</span><span class="l">Volume de béton par éolienne — 1 700 tonnes</span></div>
+      <div class="kn"><span class="v">2 100 m³</span><span class="l">Total béton pour les 3 éoliennes du projet de Plouarzel</span></div>
+      <div class="kn"><span class="v">Ø 20 m</span><span class="l">Diamètre du socle de fondation enterré</span></div>
+    </div>
+
+    <div class="widget-wrap">
+      <div class="beton-layout">
+        <canvas id="cv-beton" width="320" height="380" style="display:block;width:100%;height:auto;"></canvas>
+        <div style="display:flex;flex-direction:column;gap:.7rem;">
+          <div class="beton-facts">
+            <div class="beton-fact"><div class="fv">700 m³</div><div class="fl">Béton armé par éolienne<br>≈ <strong>1 700 tonnes</strong></div></div>
+            <div class="beton-fact" style="border-color:#2e6da4;"><div class="fv" style="color:#2e6da4;">40 t</div><div class="fl">Acier de ferraillage<br>densité ~57 kg/m³</div></div>
+            <div class="beton-fact" style="border-color:var(--vert);"><div class="fv" style="color:var(--vert);">Ø 20 m</div><div class="fl">Diamètre · Profondeur : 3,5 m</div></div>
+          </div>
+          <div class="beton-comps">
+            <h4>Équivalences concrètes</h4>
+            <div class="beton-ci"><span>🏠</span><div><strong>14 maisons</strong> individuelles (dalle ~50 m³)</div></div>
+            <div class="beton-ci"><span>🚛</span><div><strong>70 camions</strong> toupie de 10 m³</div></div>
+            <div class="beton-ci"><span>🏊</span><div><strong>2,3 piscines</strong> olympiques (300 m³)</div></div>
+            <div class="beton-ci"><span>×3</span><div><strong>2 100 m³</strong> pour le parc complet</div></div>
+          </div>
+          <div class="dem-box">
+            <strong>⚠️ Démantèlement (arrêté 22/06/2020)</strong><br>
+            Excavation totale obligatoire sur 30 cm au-dessus du socle. En pratique souvent partielle. 2 100 m³ à extraire si la loi est respectée.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="src">
+      <strong>Sources</strong>
+      Éolise.fr · Zonetronik · France Énergie Éolienne · Nordex N149-5MW (800 m³/1 920 t) · Arrêté du 22 juin 2020 relatif à la remise en état des installations de production d'électricité utilisant l'énergie mécanique du vent.
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h3>Ces chiffres vous ont convaincu ?</h3>
+  <p>Signez la pétition et rejoignez le collectif pour protéger le territoire de Plouarzel contre ce projet industriel.</p>
+  <a href="agir.html">✍ Signer la pétition</a>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <span>© Collectif NON aux éoliennes de Plouarzel — Finistère, Bretagne</span>
+  <div class="footer-links">
+    <a href="projet.html">Le projet</a>
+    <a href="infographies.html">Infographies</a>
+    <a href="carte-panoramique.html">Panoramas</a>
+    <a href="mon-impact.html">Mon impact</a>
+    <a href="agir.html">Pétition</a>
+    <a href="mailto:contact@non-eoliennes-plouarzel.fr">Contact</a>
+  </div>
+</footer>
+
+<!-- ══════════════════════
+  SCRIPTS INFOGRAPHIES
+══════════════════════ -->
+<script>
+// ── 1. HAUTEURS ANIMÉES ──
+(function(){
+  const cv=document.getElementById('cv-hauteurs');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const W=700,H=520,SOL=440,SCALE=2.7;
+  function m(v){return SOL-v*SCALE;}
+  let angle=-Math.PI/2;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // Ciel
+    const sky=ctx.createLinearGradient(0,0,0,SOL);
+    sky.addColorStop(0,'#b8daf0');sky.addColorStop(1,'#eaf4fb');
+    ctx.fillStyle=sky;ctx.fillRect(0,0,W,SOL);
+    // Sol
+    ctx.fillStyle='#b8d98a';ctx.fillRect(0,SOL,W,H-SOL);
+    ctx.fillStyle='#6db33f';ctx.fillRect(0,SOL-3,W,4);
+
+    // Titre
+    ctx.fillStyle='#1a3a5c';ctx.font='bold 16px "DM Sans",sans-serif';ctx.textAlign='center';
+    ctx.fillText('À quelle hauteur ?',W/2,26);
+    ctx.fillStyle='#999';ctx.font='11px "DM Sans",sans-serif';
+    ctx.fillText('Repères de Plouarzel comparés à l’éolienne projetée (150 m bout de pale)',W/2,42);
+
+    // ── ÉOLIENNE cx=130 ──
+    const HX=130,HY=m(100)-3;
+    // Mât
+    ctx.fillStyle='#b8c8d8';
+    ctx.beginPath();ctx.moveTo(125,SOL);ctx.lineTo(124,HY);ctx.lineTo(136,HY);ctx.lineTo(135,SOL);ctx.closePath();ctx.fill();
+    // Nacelle
+    ctx.fillStyle='#8099b0';ctx.fillRect(118,HY-8,26,10);
+    // Pales
+    const PR=m(25)-m(150+25);// rayon en px
+    const PALE=80;
+    ctx.lineCap='round';
+    for(let i=0;i<3;i++){
+      const a=angle+i*(Math.PI*2/3);
+      ctx.strokeStyle='#a8bfcf';ctx.lineWidth=5;
+      ctx.beginPath();ctx.moveTo(HX,HY);ctx.lineTo(HX+Math.cos(a)*PALE,HY+Math.sin(a)*PALE);ctx.stroke();
+      ctx.strokeStyle='#c8d8e4';ctx.lineWidth=2.5;
+      ctx.beginPath();ctx.moveTo(HX+Math.cos(a)*4,HY+Math.sin(a)*4);ctx.lineTo(HX+Math.cos(a)*PALE,HY+Math.sin(a)*PALE);ctx.stroke();
+    }
+    // Hub
+    ctx.fillStyle='#6888a0';ctx.beginPath();ctx.arc(HX,HY,5,0,Math.PI*2);ctx.fill();
+    // Cote 150m
+    ctx.strokeStyle='#b03020';ctx.lineWidth=1.2;ctx.setLineDash([4,3]);
+    ctx.beginPath();ctx.moveTo(95,SOL);ctx.lineTo(95,HY-PALE);ctx.stroke();
+    ctx.setLineDash([]);ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(90,SOL);ctx.lineTo(100,SOL);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(90,HY-PALE);ctx.lineTo(100,HY-PALE);ctx.stroke();
+    ctx.fillStyle='#b03020';ctx.font='bold 12px "DM Sans",sans-serif';ctx.textAlign='right';ctx.fillText('150 m',88,HY-PALE-3);
+    ctx.textAlign='center';
+    ctx.fillStyle='#1a3a5c';ctx.font='bold 13px "DM Sans",sans-serif';ctx.fillText('Éolienne',HX,SOL+18);
+    ctx.fillStyle='#777';ctx.font='10px "DM Sans",sans-serif';ctx.fillText('BayWa r.e.',HX,SOL+30);
+
+    // ── PHARE TRÉZIEN cx=280 ──
+    const PH=m(37);
+    ctx.fillStyle='#e8e2d4';
+    ctx.beginPath();ctx.moveTo(268,SOL);ctx.lineTo(270,PH+20);ctx.lineTo(275,PH+3);ctx.lineTo(285,PH+3);ctx.lineTo(290,PH+20);ctx.lineTo(292,SOL);ctx.closePath();ctx.fill();
+    ctx.strokeStyle='#c8b898';ctx.lineWidth=0.8;ctx.stroke();
+    // Bandes rayées
+    for(let y=SOL-15;y>PH+20;y-=20){ctx.fillStyle='rgba(170,140,90,0.35)';ctx.fillRect(270,y,21,8);}
+    // Lanterne rouge
+    ctx.fillStyle='#b03020';ctx.fillRect(274,PH-2,12,7);
+    ctx.fillStyle='#222';ctx.fillRect(273,PH-7,14,6);
+    // Coiffe
+    ctx.fillStyle='#555';ctx.beginPath();ctx.moveTo(280,PH-12);ctx.lineTo(274,PH-7);ctx.lineTo(286,PH-7);ctx.closePath();ctx.fill();
+    // Cote 37m
+    ctx.strokeStyle='#6080a0';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+    ctx.beginPath();ctx.moveTo(257,SOL);ctx.lineTo(257,PH);ctx.stroke();
+    ctx.setLineDash([]);ctx.lineWidth=1.2;
+    ctx.beginPath();ctx.moveTo(253,SOL);ctx.lineTo(261,SOL);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(253,PH);ctx.lineTo(261,PH);ctx.stroke();
+    ctx.fillStyle='#6080a0';ctx.font='bold 11px "DM Sans",sans-serif';ctx.textAlign='right';ctx.fillText('37 m',251,PH+4);
+    ctx.textAlign='center';
+    ctx.fillStyle='#1a3a5c';ctx.font='bold 13px "DM Sans",sans-serif';ctx.fillText('Phare de',280,SOL+18);
+    ctx.fillStyle='#777';ctx.font='10px "DM Sans",sans-serif';ctx.fillText('Trézien',280,SOL+30);
+
+    // ── ÉGLISE SAINT-ARZEL cx=440 ──
+    const EH=m(36);
+    // Nef
+    ctx.fillStyle='#ddd8cc';ctx.fillRect(418,m(13),46,m(0)-m(13));
+    ctx.strokeStyle='#c0b8a8';ctx.lineWidth=0.8;ctx.strokeRect(418,m(13),46,m(0)-m(13));
+    // Clocher
+    ctx.fillStyle='#ccc4b4';ctx.fillRect(428,m(32),20,m(0)-m(32));
+    ctx.strokeStyle='#b0a898';ctx.lineWidth=0.8;ctx.strokeRect(428,m(32),20,m(0)-m(32));
+    // Flèche élancée
+    ctx.fillStyle='#a8a090';ctx.beginPath();ctx.moveTo(438,EH);ctx.lineTo(428,m(32));ctx.lineTo(448,m(32));ctx.closePath();ctx.fill();
+    // Fenêtres
+    ctx.fillStyle='#b8ccd8';
+    [[430,m(32)+10,6,8],[440,m(32)+10,6,8],[420,m(9),8,10],[450,m(9),8,10]].forEach(([x,y,w,h])=>ctx.fillRect(x,y,w,h));
+    // Croix
+    ctx.fillStyle='#888';ctx.fillRect(437,EH-10,2,10);ctx.fillRect(433,EH-7,10,2);
+    // Rosace
+    ctx.beginPath();ctx.arc(438,m(32)+25,5,0,Math.PI*2);ctx.fillStyle='#c8d8e0';ctx.fill();
+    // Cote 36m
+    ctx.strokeStyle='#6080a0';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+    ctx.beginPath();ctx.moveTo(408,SOL);ctx.lineTo(408,EH);ctx.stroke();
+    ctx.setLineDash([]);ctx.lineWidth=1.2;
+    ctx.beginPath();ctx.moveTo(404,SOL);ctx.lineTo(412,SOL);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(404,EH);ctx.lineTo(412,EH);ctx.stroke();
+    ctx.fillStyle='#6080a0';ctx.font='bold 11px "DM Sans",sans-serif';ctx.textAlign='right';ctx.fillText('36 m',402,EH+4);
+    ctx.textAlign='center';
+    ctx.fillStyle='#1a3a5c';ctx.font='bold 13px "DM Sans",sans-serif';ctx.fillText('Église',438,SOL+18);
+    ctx.fillStyle='#777';ctx.font='10px "DM Sans",sans-serif';ctx.fillText('Saint-Arzel',438,SOL+30);
+
+    // ── MENHIR KERLOAS cx=590 ──
+    const MH=m(9.5);
+    ctx.fillStyle='#c0a880';
+    ctx.beginPath();ctx.moveTo(584,SOL);ctx.lineTo(582,MH+12);ctx.lineTo(585,MH+4);ctx.lineTo(590,MH+2);ctx.lineTo(595,MH+4);ctx.lineTo(598,MH+12);ctx.lineTo(596,SOL);ctx.closePath();ctx.fill();
+    ctx.strokeStyle='#a89060';ctx.lineWidth=0.8;ctx.stroke();
+    // Texture granit
+    ctx.strokeStyle='rgba(160,128,80,.4)';ctx.lineWidth=0.6;
+    [[584,SOL-8,596,SOL-8],[583,SOL-17,596,SOL-17],[583,SOL-26,595,SOL-26]].forEach(([x1,y1,x2,y2])=>{ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();});
+    ctx.fillStyle='#9a8050';
+    ctx.beginPath();ctx.ellipse(583,SOL-6,2.5,2,0,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.ellipse(597,SOL-6,2.5,2,0,0,Math.PI*2);ctx.fill();
+    // Cote 9,5m
+    ctx.strokeStyle='#8a6a40';ctx.lineWidth=1;ctx.setLineDash([2,3]);
+    ctx.beginPath();ctx.moveTo(572,SOL);ctx.lineTo(572,MH);ctx.stroke();
+    ctx.setLineDash([]);ctx.lineWidth=1.2;
+    ctx.beginPath();ctx.moveTo(568,SOL);ctx.lineTo(576,SOL);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(568,MH);ctx.lineTo(576,MH);ctx.stroke();
+    ctx.fillStyle='#8a6a40';ctx.font='bold 11px "DM Sans",sans-serif';ctx.textAlign='right';ctx.fillText('9,5 m',566,MH+4);
+    ctx.textAlign='center';
+    ctx.fillStyle='#5a4820';ctx.font='bold 13px "DM Sans",sans-serif';ctx.fillText('Menhir de',590,SOL+18);
+    ctx.fillStyle='#777';ctx.font='10px "DM Sans",sans-serif';ctx.fillText('Kerloas',590,SOL+30);
+
+    // Filet de bas
+    ctx.fillStyle='rgba(150,150,150,.55)';ctx.font='9px "DM Sans",sans-serif';ctx.textAlign='center';
+    ctx.fillText('Représentation à l’échelle · Sources : BayWa r.e., commune de Plouarzel, DREAL Bretagne, patrimoine-iroise.fr',W/2,H-4);
+
+    angle+=0.007;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── 2. CAMEMBERT REVENUS ──
+(function(){
+  const cv=document.getElementById('cv-pie');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const SLICES=[
+    {l:'Développeur / fonds d'investissement',pct:55,eur:'1 155 000',col:'#1a3a5c',note:'Remboursement dette + marge opérateur'},
+    {l:'Banques (remboursement emprunt)',pct:30,eur:'630 000',col:'#2e6da4',note:'Financement à 70-80% de la dette'},
+    {l:'Collectivités locales (taxes IFER, CFE…)',pct:4.5,eur:'94 500',col:'#2d6b1f',note:'IFER ~8 620 €/MW/an (2024)'},
+    {l:'Propriétaire foncier (loyer terrain)',pct:1.5,eur:'31 500',col:'#6aaf50',note:'1 000–5 000 €/MW/an'},
+    {l:'Fermier (indemnité)',pct:0.5,eur:'10 500',col:'#a8d88a',note:'600–830 €/MW/an'},
+    {l:'Riverains subissant les nuisances',pct:0,eur:'0',col:'#b03020',note:'⚠ Aucune compensation prévue'},
+  ];
+  const CX=100,CY=100,R=88,total=100;
+  let start=-Math.PI/2;
+  SLICES.forEach(s=>{
+    if(s.pct===0)return;
+    const sw=s.pct/total*Math.PI*2;
+    ctx.beginPath();ctx.moveTo(CX,CY);ctx.arc(CX,CY,R,start,start+sw);ctx.closePath();
+    ctx.fillStyle=s.col;ctx.fill();
+    ctx.strokeStyle='white';ctx.lineWidth=2;ctx.stroke();
+    start+=sw;
+  });
+  ctx.beginPath();ctx.arc(CX,CY,38,0,Math.PI*2);ctx.fillStyle='white';ctx.fill();
+  ctx.fillStyle='#1a3a5c';ctx.font='bold 11px "DM Sans",sans-serif';ctx.textAlign='center';
+  ctx.fillText('2,1 M€',CX,CY-3);ctx.fillStyle='#888';ctx.font='9px "DM Sans",sans-serif';ctx.fillText('/ an',CX,CY+9);
+
+  const leg=document.getElementById('pie-legend');
+  if(leg){
+    leg.innerHTML=SLICES.map(s=>`
+    <div class="leg-item">
+      <div class="leg-sw" style="background:${s.col};${s.pct===0?'border:2px solid #b03020;background:white;':''}"></div>
+      <div>
+        <div class="leg-label">${s.l}</div>
+        <div><span class="leg-pct" style="color:${s.col==='#b03020'?'#b03020':'#1a3a5c'}">${s.pct}%</span> <span class="leg-eur">≈ ${s.eur} €/an</span></div>
+        <div class="leg-note">${s.note}</div>
+      </div>
+    </div>`).join('');
+  }
+})();
+
+// ── 4. FONDATIONS BÉTON ──
+(function(){
+  const cv=document.getElementById('cv-beton');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const W=320,H=380,SOL=160;
+
+  // Fond
+  const grad=ctx.createLinearGradient(0,SOL,0,H);
+  grad.addColorStop(0,'#c0a880');grad.addColorStop(1,'#a08060');
+  ctx.fillStyle=grad;ctx.fillRect(0,SOL,W,H-SOL);
+  const sky=ctx.createLinearGradient(0,0,0,SOL);
+  sky.addColorStop(0,'#c8e8f8');sky.addColorStop(1,'#eaf4fb');
+  ctx.fillStyle=sky;ctx.fillRect(0,0,W,SOL);
+
+  // Sol végétal
+  ctx.fillStyle='#b8d98a';ctx.fillRect(0,SOL-10,W,14);
+  ctx.fillStyle='#6db33f';ctx.fillRect(0,SOL-12,W,5);
+
+  // Mât partiel
+  ctx.fillStyle='#c0d0e0';ctx.fillRect(148,20,24,SOL-15);
+  ctx.fillStyle='#8aaabf';ctx.fillRect(138,14,44,12);
+  ctx.strokeStyle='#a0b8cc';ctx.lineWidth=4;ctx.lineCap='round';
+  ctx.beginPath();ctx.moveTo(160,18);ctx.lineTo(160,2);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(160,18);ctx.lineTo(143,33);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(160,18);ctx.lineTo(177,33);ctx.stroke();
+
+  // Fondation (coupe)
+  const BX=20,BY=SOL+5,BW=280,BH=110;
+  ctx.fillStyle='#b0a090';ctx.fillRect(BX,BY,BW,BH);
+  // Ferraillage
+  ctx.strokeStyle='rgba(140,80,40,.45)';ctx.lineWidth=1.5;
+  for(let x=BX+15;x<BX+BW-10;x+=22){ctx.beginPath();ctx.moveTo(x,BY+6);ctx.lineTo(x,BY+BH-6);ctx.stroke();}
+  for(let y=BY+15;y<BY+BH-6;y+=22){ctx.beginPath();ctx.moveTo(BX+6,y);ctx.lineTo(BX+BW-6,y);ctx.stroke();}
+  // Virole centrale
+  ctx.fillStyle='#888898';ctx.fillRect(144,BY-10,32,BH+10);
+  ctx.strokeStyle='#707080';ctx.lineWidth=1;ctx.strokeRect(144,BY-10,32,BH+10);
+
+  // Label béton
+  ctx.fillStyle='rgba(255,255,255,.9)';const lbx=55,lby=BY+40;
+  ctx.fillRect(lbx,lby,150,36);ctx.strokeStyle='#b03020';ctx.lineWidth=1;ctx.strokeRect(lbx,lby,150,36);
+  ctx.fillStyle='#1a3a5c';ctx.font='bold 11px "DM Sans",sans-serif';ctx.textAlign='center';
+  ctx.fillText('700 m³ de béton armé',lbx+75,lby+15);
+  ctx.fillStyle='#666';ctx.font='10px "DM Sans",sans-serif';ctx.fillText('≈ 1 700 tonnes',lbx+75,lby+28);
+
+  // Cote diamètre
+  ctx.strokeStyle='#b03020';ctx.lineWidth=1.2;ctx.setLineDash([4,3]);
+  ctx.beginPath();ctx.moveTo(BX,BY+BH+16);ctx.lineTo(BX+BW,BY+BH+16);ctx.stroke();
+  ctx.setLineDash([]);ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(BX,BY+BH+11);ctx.lineTo(BX,BY+BH+21);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(BX+BW,BY+BH+11);ctx.lineTo(BX+BW,BY+BH+21);ctx.stroke();
+  ctx.fillStyle='#b03020';ctx.font='bold 11px "DM Sans",sans-serif';ctx.textAlign='center';
+  ctx.fillText('Ø 20 m',W/2,BY+BH+32);
+
+  // Cote profondeur
+  ctx.strokeStyle='#2e6da4';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+  ctx.beginPath();ctx.moveTo(BX-12,BY);ctx.lineTo(BX-12,BY+BH);ctx.stroke();
+  ctx.setLineDash([]);ctx.lineWidth=1.2;
+  ctx.beginPath();ctx.moveTo(BX-17,BY);ctx.lineTo(BX-7,BY);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(BX-17,BY+BH);ctx.lineTo(BX-7,BY+BH);ctx.stroke();
+  ctx.fillStyle='#2e6da4';ctx.font='bold 10px "DM Sans",sans-serif';ctx.textAlign='center';
+  ctx.save();ctx.translate(BX-22,BY+BH/2);ctx.rotate(-Math.PI/2);ctx.fillText('3,5 m',0,0);ctx.restore();
+
+  // Note
+  ctx.fillStyle='#3a6a20';ctx.font='bold 9px "DM Sans",sans-serif';ctx.textAlign='left';
+  ctx.fillText('← Niveau du sol',W/2+10,SOL-14);
+})();
+</script>
+
+</body>
+</html>

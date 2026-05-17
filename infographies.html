@@ -1,81 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Infographies — NON aux éoliennes de Plouarzel</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --vf:#1e3d14;--vert:#2d6b1f;--vc:#e8f4e5;--vcd:#b5dba8;
-  --rouge:#b03020;--rouge-f:#7a1a0e;--rouge-c:#fdf0ee;
-  --or:#c8921a;--or-c:#fff8e8;
-  --gris:#f2ede6;--gris2:#e8e0d4;--sombre:#1a1a1a;--blanc:#fff;
+/* ── VARIABLES & BASE ── */
+:root {
+  --vf:#1e3d14; --vert:#2d6b1f; --vc:#e8f4e5; --vcd:#b5dba8;
+  --rouge:#b03020; --rouge-f:#7a1a0e; --rouge-c:#fdf0ee;
+  --or:#c8921a; --or-c:#fff8e8;
+  --gris:#f2ede6; --gris2:#e8e0d4; --sombre:#1a1a1a; --blanc:#fff;
   --nh:62px;
-  --shadow:0 4px 20px rgba(0,0,0,.09);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{font-family:'DM Sans',sans-serif;background:var(--gris);color:var(--sombre);min-height:100%;}
+html,body{font-family:'DM Sans',sans-serif;background:var(--gris);color:var(--sombre);}
 a{color:var(--vf);text-decoration:none;}
 
 /* ── NAV ── */
 nav{
   position:sticky;top:0;z-index:300;
   background:var(--blanc);border-bottom:3px solid var(--vert);
-  height:var(--nh);display:flex;align-items:center;justify-content:space-between;
-  padding:0 2rem;box-shadow:0 2px 12px rgba(0,0,0,.08);
+  height:var(--nh);display:flex;align-items:center;
+  justify-content:space-between;padding:0 1.8rem;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);font-family:'DM Sans',sans-serif;
 }
-.nav-logo{
-  font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;
-  color:var(--vf);text-decoration:none;white-space:nowrap;
-}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:.95rem;color:var(--vf);text-decoration:none;white-space:nowrap;}
 .nav-logo em{font-style:italic;color:var(--rouge);}
-nav ul{list-style:none;display:flex;gap:0;}
-nav ul a{
-  display:block;padding:0 .85rem;height:var(--nh);line-height:var(--nh);
-  font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
+nav ul{list-style:none;display:flex;margin:0;padding:0;}
+nav ul li a{
+  display:block;padding:0 .78rem;height:var(--nh);line-height:var(--nh);
+  font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;
   color:#555;text-decoration:none;
-  border-bottom:3px solid transparent;margin-bottom:-3px;transition:.2s;
+  border-bottom:3px solid transparent;margin-bottom:-3px;
+  font-family:'DM Sans',sans-serif;transition:.2s;white-space:nowrap;
 }
-nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
-.nav-cta{
-  background:var(--rouge)!important;color:var(--blanc)!important;
-  height:34px!important;line-height:34px!important;
-  margin:auto 0;border-bottom:none!important;border-radius:2px;padding:0 1rem;
+nav ul li a:hover,nav ul li a.on{color:var(--vert);border-bottom-color:var(--vert);}
+nav ul li a.nav-cta{
+  background:var(--rouge);color:var(--blanc);
+  height:34px;line-height:34px;margin:auto 0;
+  border-bottom:none;border-radius:2px;padding:0 .9rem;
 }
-.nav-cta:hover{background:var(--rouge-f)!important;}
+nav ul li a.nav-cta:hover{background:var(--rouge-f);}
+@media(max-width:820px){nav ul{display:none;}}
 
 /* ── PAGE HEADER ── */
-.page-header{
-  background:linear-gradient(135deg,var(--vf),#2d5a20 60%,#1a3d10);
-  color:var(--blanc);padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;
-}
-.page-header::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 20% 50%,rgba(255,255,255,.04),transparent 60%);
-}
-.page-header .bc{font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;position:relative;}
+.page-header{background:linear-gradient(135deg,var(--vf),#2d5a20 60%,#1a3d10);color:var(--blanc);padding:2.5rem 2rem 2rem;}
+.page-header .bc{font-size:.75rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;}
 .page-header .bc a{color:rgba(255,255,255,.65);}
-.page-header h1{
-  font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);
-  position:relative;margin-bottom:.4rem;
-}
-.page-header p{font-size:.85rem;color:rgba(255,255,255,.75);max-width:620px;line-height:1.7;position:relative;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2rem);margin-bottom:.4rem;}
+.page-header p{font-size:.85rem;color:rgba(255,255,255,.75);max-width:620px;line-height:1.7;}
 
-/* ── CONTAINER ── */
+/* ── CONTAINER & CARDS ── */
 .container{max-width:1060px;margin:0 auto;padding:2rem 1.5rem 4rem;}
-
-/* ── CARDS ── */
-.card{
-  background:var(--blanc);border:1px solid var(--gris2);
-  border-radius:4px;box-shadow:var(--shadow);margin-bottom:2rem;overflow:hidden;
-}
+.card{background:var(--blanc);border:1px solid var(--gris2);border-radius:4px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:2rem;overflow:hidden;}
 .card-head{padding:1.3rem 1.8rem 1rem;border-bottom:1px solid #f0f0f0;}
-.card-num{
-  display:inline-block;background:var(--rouge);color:var(--blanc);
-  font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:700;
-  padding:.18rem .55rem;letter-spacing:.08em;margin-bottom:.45rem;border-radius:1px;
-}
+.card-num{display:inline-block;background:var(--rouge);color:var(--blanc);font-size:.68rem;font-weight:700;padding:.18rem .55rem;letter-spacing:.08em;margin-bottom:.45rem;border-radius:1px;}
 .card-head h2{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--vf);margin-bottom:.25rem;}
 .card-head p{font-size:.82rem;color:#777;line-height:1.65;max-width:680px;}
 .card-body{padding:1.4rem 1.8rem 1.8rem;}
@@ -86,73 +67,23 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
 .kn .v{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--rouge);display:block;margin-bottom:.2rem;line-height:1.1;}
 .kn .l{font-size:.74rem;color:#666;line-height:1.4;}
 
-/* ── SOURCE BOX ── */
-.src{
-  background:var(--vc);border:1px solid var(--vcd);border-left:3px solid var(--vert);
-  border-radius:0 3px 3px 0;padding:.7rem 1rem;margin-top:1.2rem;
-  font-size:.74rem;color:#3a5c30;line-height:1.65;
-}
-.src strong{display:block;margin-bottom:.18rem;color:var(--vf);}
-
-/* ── FOOTER ── */
-footer{
-  background:#111;color:rgba(255,255,255,.45);
-  padding:1.5rem 2rem;font-size:.74rem;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
-}
-footer a{color:rgba(255,255,255,.55);}
-footer a:hover{color:var(--blanc);}
-.footer-links{display:flex;gap:1.5rem;}
-
-/* ── BUTTONS ── */
-.btn{
-  display:inline-flex;align-items:center;gap:.4rem;
-  padding:.7rem 1.4rem;font-size:.82rem;font-weight:600;
-  font-family:'DM Sans',sans-serif;border:none;border-radius:3px;
-  cursor:pointer;transition:.15s;text-decoration:none;
-}
-.btn:hover{filter:brightness(.9);transform:translateY(-1px);}
-.btn-g{background:var(--vert);color:var(--blanc);}
-.btn-r{background:var(--rouge);color:var(--blanc);}
-.btn-o{background:var(--blanc);color:var(--sombre);border:1.5px solid #ccc;}
-
-/* ── CTA BAND ── */
-.cta-band{
-  background:var(--rouge);border-radius:4px;padding:2rem;
-  text-align:center;color:var(--blanc);margin-top:.5rem;
-}
-.cta-band h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.45rem;}
-.cta-band p{font-size:.83rem;color:rgba(255,255,255,.8);margin-bottom:1.1rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6;}
-.cta-band a{
-  display:inline-block;background:var(--blanc);color:var(--rouge);
-  padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;
-  border-radius:3px;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;
-}
-
-@media(max-width:700px){
-  nav ul{display:none;}
-  .keynums{grid-template-columns:1fr 1fr;}
-  .card-body,.card-head{padding:1rem 1rem 1.2rem;}
-}
-</style>
-<style>
-/* INFOGRAPHIES SPECIFIC */
-.widget-wrap{background:#f9f6f1;border:1px solid var(--gris2);border-radius:3px;padding:1.2rem;margin-bottom:1rem;}
+/* ── CANVAS WRAPPER ── */
+.widget-wrap{background:#f9f6f1;border:1px solid var(--gris2);border-radius:3px;padding:1rem;margin-bottom:1rem;overflow:hidden;}
 canvas{display:block;width:100%;height:auto;}
 
-/* PIE CHART */
+/* ── PIE CHART ── */
 .pie-layout{display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap;}
-.pie-legend{flex:1;min-width:220px;display:flex;flex-direction:column;gap:.55rem;}
+.pie-legend{flex:1;min-width:200px;display:flex;flex-direction:column;gap:.55rem;}
 .leg-item{display:flex;align-items:flex-start;gap:.7rem;}
 .leg-sw{width:13px;height:13px;border-radius:2px;flex-shrink:0;margin-top:2px;}
 .leg-label{font-size:.78rem;font-weight:600;color:#222;}
 .leg-pct{font-weight:800;font-size:.85rem;}
 .leg-eur{font-size:.72rem;color:#666;}
 .leg-note{font-size:.68rem;color:#999;font-style:italic;}
-.total-box{background:var(--vf);color:var(--blanc);border-radius:3px;padding:.7rem 1rem;text-align:center;margin-top:.8rem;font-size:.78rem;}
+.total-box{background:var(--vf);color:var(--blanc);border-radius:3px;padding:.7rem 1rem;text-align:center;margin:.8rem auto 0;max-width:460px;font-size:.78rem;}
 .total-box strong{font-size:1rem;display:block;font-family:'Playfair Display',serif;}
 
-/* IMMO CARDS */
+/* ── IMMOBILIER CARDS ── */
 .immo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:1.2rem;}
 .immo-card{background:var(--blanc);border:2px solid var(--gris2);border-radius:3px;padding:.9rem .7rem;text-align:center;}
 .immo-card.hot{border-color:var(--rouge);background:var(--rouge-c);}
@@ -161,46 +92,52 @@ canvas{display:block;width:100%;height:auto;}
 .immo-perte{font-size:.75rem;font-weight:600;color:#333;}
 .immo-loyer{font-size:.68rem;color:#888;margin-top:.15rem;}
 .immo-src{font-size:.65rem;color:var(--rouge);font-style:italic;margin-top:.2rem;}
+
+/* ── BARRES ── */
 .bar-row{display:flex;align-items:center;gap:.7rem;margin-bottom:.4rem;}
 .bar-lbl{font-size:.74rem;color:#555;width:80px;flex-shrink:0;}
 .bar-w{flex:1;background:#eee;border-radius:3px;height:14px;overflow:hidden;}
-.bar-f{height:100%;background:linear-gradient(90deg,var(--rouge-f),var(--rouge));border-radius:3px;}
-.bar-v{font-size:.74rem;font-weight:700;color:var(--rouge-f);width:85px;text-align:right;flex-shrink:0;}
+.bar-f{height:100%;background:linear-gradient(90deg,#7a1a0e,#b03020);border-radius:3px;}
+.bar-v{font-size:.74rem;font-weight:700;color:#7a1a0e;width:85px;text-align:right;flex-shrink:0;}
 
-/* BETON LAYOUT */
+/* ── BÉTON ── */
 .beton-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
-.beton-facts{display:flex;flex-direction:column;gap:.7rem;}
-.beton-fact{background:var(--blanc);border-left:3px solid var(--rouge);padding:.7rem .9rem;border-radius:0 3px 3px 0;}
+.beton-fact{background:var(--blanc);border-left:3px solid var(--rouge);padding:.7rem .9rem;border-radius:0 3px 3px 0;margin-bottom:.7rem;}
 .beton-fact .fv{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--rouge);}
 .beton-fact .fl{font-size:.75rem;color:#666;margin-top:.1rem;line-height:1.4;}
 .beton-comps{background:var(--blanc);border-radius:3px;padding:.8rem 1rem;}
 .beton-comps h4{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--vf);margin-bottom:.6rem;}
 .beton-ci{display:flex;gap:.6rem;align-items:center;margin-bottom:.4rem;font-size:.78rem;color:#555;}
 .beton-ci span{font-size:1.1rem;}
-.dem-box{background:var(--or-c);border:1px solid #e8c060;border-radius:3px;padding:.7rem .9rem;font-size:.75rem;color:#7a5a00;line-height:1.6;margin-top:.7rem;}
+.dem-box{background:#fff8e8;border:1px solid #e8c060;border-radius:3px;padding:.7rem .9rem;font-size:.75rem;color:#7a5a00;line-height:1.6;margin-top:.7rem;}
+
+/* ── SOURCE ── */
+.src{background:var(--vc);border:1px solid var(--vcd);border-left:3px solid var(--vert);border-radius:0 3px 3px 0;padding:.7rem 1rem;margin-top:1.2rem;font-size:.74rem;color:#3a5c30;line-height:1.65;}
+.src strong{display:block;margin-bottom:.18rem;color:var(--vf);}
 .fn{font-size:.7rem;color:#aaa;text-align:center;margin-top:.8rem;line-height:1.6;}
 
-@media(max-width:640px){
+/* ── CTA ── */
+.cta-band{background:var(--rouge);border-radius:4px;padding:2rem;text-align:center;color:var(--blanc);margin-top:.5rem;}
+.cta-band h3{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.45rem;}
+.cta-band p{font-size:.83rem;color:rgba(255,255,255,.8);margin-bottom:1.1rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.cta-band a{display:inline-block;background:var(--blanc);color:var(--rouge);padding:.75rem 2rem;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.88rem;border-radius:3px;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;}
+
+footer{background:#111;color:rgba(255,255,255,.45);padding:1.5rem 2rem;font-size:.74rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer a{color:rgba(255,255,255,.55);}
+footer a:hover{color:var(--blanc);}
+.footer-links{display:flex;gap:1.5rem;}
+
+@media(max-width:700px){
+  .keynums{grid-template-columns:1fr 1fr;}
   .immo-grid{grid-template-columns:1fr 1fr;}
   .beton-layout{grid-template-columns:1fr;}
   .pie-layout{flex-direction:column;}
+  .card-body,.card-head{padding:1rem 1rem 1.2rem;}
 }
 </style>
-<style id="nav-unified">
-:root{--vf:#1e3d14;--vert:#2d6b1f;--rouge:#b03020;--rouge-f:#7a1a0e;--blanc:#fff;--nh:62px;}
-nav{position:sticky;top:0;z-index:300;background:var(--blanc);border-bottom:3px solid var(--vert);height:var(--nh);display:flex;align-items:center;justify-content:space-between;padding:0 1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.08);font-family:'DM Sans',sans-serif;}
-.nav-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:.92rem;color:var(--vf);text-decoration:none;white-space:nowrap;}
-.nav-logo em{font-style:italic;color:var(--rouge);}
-nav ul{list-style:none;display:flex;gap:0;}
-nav ul a{display:block;padding:0 .75rem;height:var(--nh);line-height:var(--nh);font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#555;text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-3px;transition:.2s;font-family:'DM Sans',sans-serif;}
-nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
-.nav-cta{background:var(--rouge)!important;color:var(--blanc)!important;height:34px!important;line-height:34px!important;margin:auto 0;border-bottom:none!important;border-radius:2px;padding:0 .9rem;font-family:'DM Sans',sans-serif;}
-.nav-cta:hover{background:var(--rouge-f)!important;}
-@media(max-width:800px){nav ul{display:none;}}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">NON aux <em>éoliennes</em> de Plouarzel</a>
   <ul>
@@ -222,82 +159,64 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
 
 <div class="container">
 
-<!-- ═══════════════════════════════════════
-  1. COMPARAISON DE HAUTEUR
-═══════════════════════════════════════ -->
+<!-- 1. HAUTEURS -->
 <div class="card">
   <div class="card-head">
     <div class="card-num">INFOGRAPHIE 1</div>
     <h2>À quelle hauteur ? L'éolienne comparée aux repères du territoire</h2>
-    <p>Une éolienne de 150 m en bout de pale. Pour visualiser ce que cela représente, la voici comparée aux monuments emblématiques de Plouarzel — à l'échelle exacte.</p>
+    <p>Une éolienne de 150 m en bout de pale. Pour visualiser ce que cela représente, la voici comparée aux monuments emblématiques de Plouarzel — à l'échelle exacte, avec les pales en rotation.</p>
   </div>
   <div class="card-body">
     <div class="keynums">
       <div class="kn"><span class="v">150 m</span><span class="l">Hauteur en bout de pale — projet BayWa r.e.</span></div>
-      <div class="kn"><span class="v">× 16</span><span class="l">L'éolienne est 16× plus haute que le menhir de Kerloas (9,5 m)</span></div>
-      <div class="kn"><span class="v">× 4</span><span class="l">Plus haute que le phare de Trézien (37 m) et l'église Saint-Arzel (36 m)</span></div>
+      <div class="kn"><span class="v">× 16</span><span class="l">Plus haute que le menhir de Kerloas (9,5 m)</span></div>
+      <div class="kn"><span class="v">× 4</span><span class="l">Plus haute que le phare de Trézien (37 m)</span></div>
     </div>
-
-    <div class="widget-wrap" style="background:#eaf4fb;padding:.5rem;">
-      <canvas id="cv-hauteurs" width="700" height="520" style="display:block;width:100%;height:auto;"></canvas>
+    <div class="widget-wrap" style="background:#eaf4fb;">
+      <canvas id="cv-hauteurs" width="700" height="520"></canvas>
     </div>
-    <div class="src">
-      <strong>Sources</strong>
-      Hauteur éolienne : BayWa r.e., lettre d'information n°1 (2026) · Phare de Trézien : 37 m (DREAL Bretagne) · Église Saint-Arzel de Plouarzel : 36 m · Menhir de Kerloas : 9,50 m, classé Monument Historique depuis 1883.
-    </div>
+    <div class="src"><strong>Sources</strong>Hauteur éolienne : BayWa r.e., lettre n°1 (2026) · Phare de Trézien : 37 m · Église Saint-Arzel : 36 m · Menhir de Kerloas : 9,50 m, classé MH 1883.</div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-  2. RÉPARTITION DES REVENUS
-═══════════════════════════════════════ -->
+<!-- 2. REVENUS -->
 <div class="card">
   <div class="card-head">
     <div class="card-num">INFOGRAPHIE 2</div>
     <h2>Qui touche quoi ? La répartition des revenus du parc éolien</h2>
-    <p>Pour 3 éoliennes de 4 MW, le chiffre d'affaires annuel dépasse 2 millions d'euros. La quasi-totalité revient aux financiers et au développeur. Les riverains qui subissent les nuisances : 0 €.</p>
+    <p>Pour 3 éoliennes de 4 MW, le chiffre d'affaires annuel dépasse 2 millions d'euros. La quasi-totalité revient aux financiers. Les riverains qui subissent les nuisances : 0 €.</p>
   </div>
   <div class="card-body">
     <div class="keynums">
-      <div class="kn"><span class="v">2,1 M€</span><span class="l">Chiffre d'affaires annuel du parc (3 × 4 MW)</span></div>
-      <div class="kn"><span class="v">93 %</span><span class="l">Part captée par le développeur, les fonds et les banques</span></div>
-      <div class="kn"><span class="v">0 €</span><span class="l">Compensation pour les riverains qui subissent les nuisances</span></div>
+      <div class="kn"><span class="v">2,1 M€</span><span class="l">Chiffre d'affaires annuel (3 × 4 MW)</span></div>
+      <div class="kn"><span class="v">93 %</span><span class="l">Capté par le développeur, les fonds et les banques</span></div>
+      <div class="kn"><span class="v">0 €</span><span class="l">Compensation pour les riverains</span></div>
     </div>
-
     <div class="widget-wrap">
       <div class="pie-layout">
-        <canvas id="cv-pie" width="200" height="200" style="display:block;width:200px;height:200px;flex-shrink:0;"></canvas>
+        <canvas id="cv-pie" width="220" height="220" style="width:220px;height:220px;flex-shrink:0;"></canvas>
         <div class="pie-legend" id="pie-legend"></div>
       </div>
-      <div class="total-box" style="max-width:460px;margin:.8rem auto 0;">
-        Chiffre d'affaires annuel total estimé
-        <strong>≈ 2 100 000 €/an</strong>
-      </div>
+      <div class="total-box">Chiffre d'affaires annuel estimé<strong>≈ 2 100 000 €/an</strong></div>
     </div>
-    <div class="fn">Sources : France Énergie Éolienne, Éolise.fr, données fiscales IFER 2024. Estimations représentatives d'un parc type 4 MW.</div>
-    <div class="src">
-      <strong>Méthode de calcul</strong>
-      CA : 3 éoliennes × 4 MW × 2 500 h/an × 70 €/MWh. Taxes IFER : 8 620 €/MW/an (barème 2024). Loyers fonciers : 1 000–5 000 €/MW (France Énergie Éolienne). Indemnité fermier : 600–830 €/MW. Part financière : ratio dette/capital 70-80% marché éolien européen.
-    </div>
+    <div class="fn">Sources : France Énergie Éolienne, Éolise.fr, données IFER 2024.</div>
+    <div class="src"><strong>Méthode</strong>CA : 3 × 4 MW × 2 500 h/an × 70 €/MWh. Taxes IFER : 8 620 €/MW/an. Loyers : 1 000–5 000 €/MW. Ratio dette/capital 70-80%.</div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-  3. IMPACT IMMOBILIER
-═══════════════════════════════════════ -->
+<!-- 3. IMMOBILIER -->
 <div class="card">
   <div class="card-head">
     <div class="card-num">INFOGRAPHIE 3</div>
     <h2>Impact sur la valeur de votre maison</h2>
-    <p>Les études scientifiques et la jurisprudence française établissent une dépréciation significative et durable des biens immobiliers proches d'un parc éolien. Pour une maison de 600 000 €, les pertes sont considérables.</p>
+    <p>Les études scientifiques et la jurisprudence française établissent une dépréciation significative et durable des biens immobiliers proches d'un parc éolien.</p>
   </div>
   <div class="card-body">
     <div class="keynums">
       <div class="kn"><span class="v">−20 à −40%</span><span class="l">Dépréciation à moins de 500 m (CA Rennes 2024)</span></div>
-      <div class="kn"><span class="v">−120 000 €</span><span class="l">Perte de valeur pour une maison à 1 km (600 000 €)</span></div>
-      <div class="kn"><span class="v">20 ans</span><span class="l">Durée pendant laquelle la perte locative s'accumule</span></div>
+      <div class="kn"><span class="v">−120 000 €</span><span class="l">Perte pour une maison à 1 km (600 000 €)</span></div>
+      <div class="kn"><span class="v">20 ans</span><span class="l">Durée pendant laquelle la perte s'accumule</span></div>
     </div>
-
     <div class="widget-wrap">
       <div class="immo-grid">
         <div class="immo-card hot">
@@ -305,7 +224,7 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
           <div class="immo-pct">−20 à −40%</div>
           <div class="immo-perte">−120 à −240 K€</div>
           <div class="immo-loyer">Loyer : −440 à −880 €/mois</div>
-          <div class="immo-src">CA Rennes 2024 : 20% retenu</div>
+          <div class="immo-src">CA Rennes 2024</div>
         </div>
         <div class="immo-card hot">
           <div class="immo-dist">1 km</div>
@@ -319,7 +238,7 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
           <div class="immo-pct">−6 à −8%</div>
           <div class="immo-perte">−36 à −48 K€</div>
           <div class="immo-loyer">Loyer : −130 à −175 €/mois</div>
-          <div class="immo-src">Bond, Cambridge (2012)</div>
+          <div class="immo-src">Bond, Cambridge 2012</div>
         </div>
         <div class="immo-card">
           <div class="immo-dist">3 km</div>
@@ -329,83 +248,67 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
           <div class="immo-src">Effet résiduel documenté</div>
         </div>
       </div>
-
-      <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.6rem;">Perte de valeur vénale pour une maison à 600 000 €</p>
+      <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#888;margin-bottom:.6rem;">Perte de valeur pour une maison à 600 000 €</p>
       <div class="bar-row"><div class="bar-lbl">≤ 500 m</div><div class="bar-w"><div class="bar-f" style="width:100%"></div></div><div class="bar-v">−180 000 €</div></div>
       <div class="bar-row"><div class="bar-lbl">1 km</div><div class="bar-w"><div class="bar-f" style="width:63%"></div></div><div class="bar-v">−105 000 €</div></div>
       <div class="bar-row"><div class="bar-lbl">2 km</div><div class="bar-w"><div class="bar-f" style="width:24%"></div></div><div class="bar-v">−42 000 €</div></div>
       <div class="bar-row"><div class="bar-lbl">3 km</div><div class="bar-w"><div class="bar-f" style="width:10%"></div></div><div class="bar-v">−18 000 €</div></div>
-
-      <div style="background:var(--or-c);border:1px solid #e8c060;border-radius:3px;padding:.8rem 1rem;font-size:.78rem;color:#7a5a00;line-height:1.6;margin-top:1rem;">
-        ⚠️ <strong>Perte locative sur 20 ans :</strong> À 500 m, la perte cumulée peut dépasser <strong>200 000 €</strong> en valeur vénale + loyers. Cette dépréciation est <strong>permanente</strong> : les prix ne remontent pas après démantèlement.
+      <div style="background:#fff8e8;border:1px solid #e8c060;border-radius:3px;padding:.8rem 1rem;font-size:.78rem;color:#7a5a00;line-height:1.6;margin-top:1rem;">
+        ⚠️ <strong>Perte locative sur 20 ans :</strong> À 500 m, la perte cumulée peut dépasser <strong>200 000 €</strong>. Cette dépréciation est <strong>permanente</strong> : les prix ne remontent pas après démantèlement.
       </div>
     </div>
-
-    <div class="src">
-      <strong>Sources juridiques et scientifiques</strong>
-      CA Rennes, mars 2024 (dépréciation de 20% retenue à moins de 500 m) · ADEME (2013) · Hoen et al., Lawrence Berkeley National Laboratory (2019) · Bond, Université de Cambridge (2012) · Vyn & McCullough (2014) · Données notaires de France (2020–2023).
-    </div>
-
+    <div class="src"><strong>Sources</strong>CA Rennes mars 2024 · ADEME 2013 · Hoen et al., LBNL 2019 · Bond, Cambridge 2012 · Vyn & McCullough 2014 · Notaires de France 2020-2023.</div>
     <div style="margin-top:1.2rem;text-align:center;">
-      <a href="mon-impact.html" class="btn btn-r">🏠 Calculez l'impact sur votre propre maison →</a>
+      <a href="mon-impact.html" style="display:inline-block;background:#b03020;color:white;padding:.7rem 1.4rem;border-radius:3px;font-weight:600;font-size:.82rem;">🏠 Calculez l'impact sur votre maison →</a>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════
-  4. FONDATIONS BÉTON
-═══════════════════════════════════════ -->
+<!-- 4. BÉTON -->
 <div class="card">
   <div class="card-head">
     <div class="card-num">INFOGRAPHIE 4</div>
     <h2>Les fondations cachées : 700 m³ de béton par éolienne</h2>
-    <p>Ce que personne ne voit, mais qui reste pour toujours. Chaque éolienne repose sur un socle de béton armé de 20 m de diamètre et 3,5 m de profondeur, définitivement enfoui dans les champs bretons.</p>
+    <p>Ce que personne ne voit, mais qui reste pour toujours. Chaque éolienne repose sur un socle de béton armé de 20 m de diamètre et 3,5 m de profondeur, définitivement enfoui dans les champs.</p>
   </div>
   <div class="card-body">
     <div class="keynums">
       <div class="kn"><span class="v">700 m³</span><span class="l">Volume de béton par éolienne — 1 700 tonnes</span></div>
-      <div class="kn"><span class="v">2 100 m³</span><span class="l">Total béton pour les 3 éoliennes du projet de Plouarzel</span></div>
-      <div class="kn"><span class="v">Ø 20 m</span><span class="l">Diamètre du socle de fondation enterré</span></div>
+      <div class="kn"><span class="v">2 100 m³</span><span class="l">Total béton pour les 3 éoliennes</span></div>
+      <div class="kn"><span class="v">Ø 20 m</span><span class="l">Diamètre du socle enterré</span></div>
     </div>
-
     <div class="widget-wrap">
       <div class="beton-layout">
-        <canvas id="cv-beton" width="320" height="380" style="display:block;width:100%;height:auto;"></canvas>
-        <div style="display:flex;flex-direction:column;gap:.7rem;">
-          <div class="beton-facts">
-            <div class="beton-fact"><div class="fv">700 m³</div><div class="fl">Béton armé par éolienne<br>≈ <strong>1 700 tonnes</strong></div></div>
-            <div class="beton-fact" style="border-color:#2e6da4;"><div class="fv" style="color:#2e6da4;">40 t</div><div class="fl">Acier de ferraillage<br>densité ~57 kg/m³</div></div>
-            <div class="beton-fact" style="border-color:var(--vert);"><div class="fv" style="color:var(--vert);">Ø 20 m</div><div class="fl">Diamètre · Profondeur : 3,5 m</div></div>
-          </div>
+        <canvas id="cv-beton" width="320" height="380" style="background:#f9f4ef;border-radius:3px;"></canvas>
+        <div>
+          <div class="beton-fact"><div class="fv">700 m³</div><div class="fl">Béton armé · <strong>≈ 1 700 t</strong></div></div>
+          <div class="beton-fact" style="border-color:#2e6da4;"><div class="fv" style="color:#2e6da4;">40 t</div><div class="fl">Acier de ferraillage</div></div>
+          <div class="beton-fact" style="border-color:#2d6b1f;"><div class="fv" style="color:#2d6b1f;">Ø 20 m</div><div class="fl">Diamètre · Profondeur : 3,5 m</div></div>
           <div class="beton-comps">
-            <h4>Équivalences concrètes</h4>
-            <div class="beton-ci"><span>🏠</span><div><strong>14 maisons</strong> individuelles (dalle ~50 m³)</div></div>
-            <div class="beton-ci"><span>🚛</span><div><strong>70 camions</strong> toupie de 10 m³</div></div>
-            <div class="beton-ci"><span>🏊</span><div><strong>2,3 piscines</strong> olympiques (300 m³)</div></div>
-            <div class="beton-ci"><span>×3</span><div><strong>2 100 m³</strong> pour le parc complet</div></div>
+            <h4>Équivalences</h4>
+            <div class="beton-ci"><span>🏠</span><div><strong>14 maisons</strong> individuelles</div></div>
+            <div class="beton-ci"><span>🚛</span><div><strong>70 camions</strong> toupie</div></div>
+            <div class="beton-ci"><span>🏊</span><div><strong>2,3 piscines</strong> olympiques</div></div>
+            <div class="beton-ci"><span>×3</span><div><strong>2 100 m³</strong> pour le parc</div></div>
           </div>
           <div class="dem-box">
             <strong>⚠️ Démantèlement (arrêté 22/06/2020)</strong><br>
-            Excavation totale obligatoire sur 30 cm au-dessus du socle. En pratique souvent partielle. 2 100 m³ à extraire si la loi est respectée.
+            Excavation totale obligatoire. En pratique souvent partielle. 2 100 m³ à extraire si la loi est respectée.
           </div>
         </div>
       </div>
     </div>
-    <div class="src">
-      <strong>Sources</strong>
-      Éolise.fr · Zonetronik · France Énergie Éolienne · Nordex N149-5MW (800 m³/1 920 t) · Arrêté du 22 juin 2020 relatif à la remise en état des installations de production d'électricité utilisant l'énergie mécanique du vent.
-    </div>
+    <div class="src"><strong>Sources</strong>Éolise.fr · France Énergie Éolienne · Arrêté du 22 juin 2020 relatif à la remise en état des installations éoliennes.</div>
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta-band">
   <h3>Ces chiffres vous ont convaincu ?</h3>
-  <p>Signez la pétition et rejoignez le collectif pour protéger le territoire de Plouarzel contre ce projet industriel.</p>
+  <p>Signez la pétition et rejoignez le collectif pour protéger Plouarzel.</p>
   <a href="agir.html">✍ Signer la pétition</a>
 </div>
 
-</div><!-- /container -->
+</div>
 
 <footer>
   <span>© Collectif NON aux éoliennes de Plouarzel — Finistère, Bretagne</span>
@@ -419,10 +322,9 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
   </div>
 </footer>
 
-<!-- ══════════════════════
-  SCRIPTS INFOGRAPHIES
-══════════════════════ -->
 <script>
+window.addEventListener('DOMContentLoaded', function() {
+
 // ── 1. HAUTEURS ANIMÉES ──
 (function(){
   const cv=document.getElementById('cv-hauteurs');
@@ -567,12 +469,12 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
   if(!cv)return;
   const ctx=cv.getContext('2d');
   const SLICES=[
-    {l:'Développeur / fonds d'investissement',pct:55,eur:'1 155 000',col:'#1a3a5c',note:'Remboursement dette + marge opérateur'},
-    {l:'Banques (remboursement emprunt)',pct:30,eur:'630 000',col:'#2e6da4',note:'Financement à 70-80% de la dette'},
-    {l:'Collectivités locales (taxes IFER, CFE…)',pct:4.5,eur:'94 500',col:'#2d6b1f',note:'IFER ~8 620 €/MW/an (2024)'},
-    {l:'Propriétaire foncier (loyer terrain)',pct:1.5,eur:'31 500',col:'#6aaf50',note:'1 000–5 000 €/MW/an'},
-    {l:'Fermier (indemnité)',pct:0.5,eur:'10 500',col:'#a8d88a',note:'600–830 €/MW/an'},
-    {l:'Riverains subissant les nuisances',pct:0,eur:'0',col:'#b03020',note:'⚠ Aucune compensation prévue'},
+    {l:"Développeur / fonds d’investissement",pct:55,eur:"1 155 000",col:"#1a3a5c",note:"Remboursement dette + marge opérateur"},
+    {l:"Banques (remboursement emprunt)",pct:30,eur:"630 000",col:"#2e6da4",note:"Financement à 70-80% de la dette"},
+    {l:"Collectivités locales (taxes IFER, CFE…)",pct:4.5,eur:"94 500",col:"#2d6b1f",note:"IFER ~8 620 €/MW/an (2024)"},
+    {l:"Propriétaire foncier (loyer terrain)",pct:1.5,eur:"31 500",col:"#6aaf50",note:"1 000–5 000 €/MW/an"},
+    {l:"Fermier (indemnité)",pct:0.5,eur:"10 500",col:"#a8d88a",note:"600–830 €/MW/an"},
+    {l:"Riverains subissant les nuisances",pct:0,eur:"0",col:"#b03020",note:"⚠ Aucune compensation prévue"},
   ];
   const CX=100,CY=100,R=88,total=100;
   let start=-Math.PI/2;
@@ -669,6 +571,32 @@ nav ul a:hover,nav ul a.on{color:var(--vert);border-bottom-color:var(--vert);}
   ctx.fillStyle='#3a6a20';ctx.font='bold 9px "DM Sans",sans-serif';ctx.textAlign='left';
   ctx.fillText('← Niveau du sol',W/2+10,SOL-14);
 })();
+
+// ── LÉGENDE PIE ──
+(function() {
+  var SLICES=[
+    {l:"Développeur / fonds d’investissement",pct:55,eur:"1 155 000",col:"#1a3a5c",note:"Remboursement dette + marge"},
+    {l:"Banques (remboursement emprunt)",pct:30,eur:"630 000",col:"#2e6da4",note:"Financement à 70-80%"},
+    {l:"Collectivités (taxes IFER, CFE…)",pct:4.5,eur:"94 500",col:"#2d6b1f",note:"IFER ~8 620 €/MW/an (2024)"},
+    {l:"Propriétaire foncier",pct:1.5,eur:"31 500",col:"#6aaf50",note:"1 000–5 000 €/MW/an"},
+    {l:"Fermier (indemnité)",pct:0.5,eur:"10 500",col:"#a8d88a",note:"600–830 €/MW/an"},
+    {l:"Riverains subissant les nuisances",pct:0,eur:"0",col:"#b03020",note:"⚠ Aucune compensation"},
+  ];
+  var leg=document.getElementById("pie-legend");
+  if(!leg) return;
+  leg.innerHTML=SLICES.map(function(s) {
+    return "<div class=\"leg-item\">"
+      +"<div class=\"leg-sw\" style=\"background:"+s.col+";"+(s.pct===0?"border:2px solid #b03020;background:white;":"")+"\">"
+      +"</div><div>"
+      +"<div class=\"leg-label\">"+s.l+"</div>"
+      +"<div><span class=\"leg-pct\" style=\"color:"+(s.pct===0?"#b03020":"#1a3a5c")+"\">"
+      +s.pct+"%</span> <span class=\"leg-eur\">≈ "+s.eur+" €/an</span></div>"
+      +"<div class=\"leg-note\">"+s.note+"</div>"
+      +"</div></div>";
+  }).join("");
+})();
+
+});
 </script>
 
 </body>
